@@ -29,7 +29,7 @@ export default function Header() {
                         </Menu.Button>
                         <Menu.Items as="div" className="absolute left-0 z-10 mt-2 flex flex-col w-full px-[15px] bg-navbar-background leading-[30px]">
                             {links.map((link) => (
-                                <Link href={link.href} className="py-2.5">{link.label}</Link>
+                                <Link href={link.href} key={link.href} className="py-2.5">{link.label}</Link>
                             ))}
                         </Menu.Items>
                     </Menu>
