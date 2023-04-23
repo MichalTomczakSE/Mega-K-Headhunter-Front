@@ -2,9 +2,8 @@ import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-const test = () => {
-  console.log("ffdsfd");
-};
+import Image from "next/image";
+import logo from'../public/images/logo.png'
 
 export const RegisterAndForgottenPassword = () => {
   const { register, handleSubmit } = useForm({
@@ -14,9 +13,7 @@ export const RegisterAndForgottenPassword = () => {
   });
   const router = useRouter();
   const formHandler = (formValues) => {
-    //ToDo api connection
-    console.log(router.pathname);
-    console.log(formValues);
+
   };
   return (
     <>
@@ -24,11 +21,9 @@ export const RegisterAndForgottenPassword = () => {
         <div className="w-full md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
-              <img
+              <Image
                 alt={"megak"}
-                src={
-                  "https://static1.s123-cdn-static-a.com/uploads/5191798/400_609bb5e2d9a39.png"
-                }
+                src={logo}
                 className={"object-fill w-36 "}
               />
             </div>
@@ -45,7 +40,7 @@ export const RegisterAndForgottenPassword = () => {
                 </div>
               </label>
               <div className={"flex items-center justify-between"}>
-                <Button onClick={test}>Wyślij</Button>
+                <Button>Wyślij</Button>
               </div>
             </form>
           </div>

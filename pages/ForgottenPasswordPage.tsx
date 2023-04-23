@@ -1,7 +1,7 @@
 import { RegisterAndForgottenPassword } from "@/components/registerAndForgottenPassword";
 
-const ForgottenPassword = () => {
+const ForgottenPasswordPage = () => {
   return <RegisterAndForgottenPassword />;
 };
 
-export default ForgottenPassword;
+export default ForgottenPasswordPage;

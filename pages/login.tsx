@@ -2,6 +2,8 @@ import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import Image from "next/image";
+import logo from'../public/images/logo.png'
 
 const Login = () => {
   const { register, handleSubmit } = useForm({
@@ -11,7 +13,7 @@ const Login = () => {
     },
   });
   const formHandler = (formValues) => {
-    console.log(formValues);
+
   };
   return (
     <>
@@ -19,11 +21,9 @@ const Login = () => {
         <div className="w-full md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
-              <img
+              <Image
                 alt={"megak"}
-                src={
-                  "https://static1.s123-cdn-static-a.com/uploads/5191798/400_609bb5e2d9a39.png"
-                }
+                src={logo}
                 className={"object-fill w-36 "}
               />
             </div>
@@ -45,7 +45,7 @@ const Login = () => {
                 />
               </div>
               <div className="flex flex-row-reverse mb-6">
-                <Link href={"/forgottenPassword"}>
+                <Link href={"/ForgottenPasswordPage"}>
                   <span className={"text-light-primary-text"}>
                     Zapomniałeś hasła?
                   </span>
