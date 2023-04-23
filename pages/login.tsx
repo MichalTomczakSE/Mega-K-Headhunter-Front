@@ -15,7 +15,7 @@ const Login = () => {
   };
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="flex flex-col bg-primary-background items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
         <div className="w-full md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
@@ -45,14 +45,18 @@ const Login = () => {
                 />
               </div>
               <div className="flex flex-row-reverse mb-6">
-                <Link href={"/forgottenPassword"}>Zapomniałeś hasła?</Link>
+                <Link href={"/forgottenPassword"}>
+                  <span className={"text-light-primary-text"}>
+                    Zapomniałeś hasła?
+                  </span>
+                </Link>
               </div>
               <div className={"flex items-center justify-between"}>
-                <span className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <span className="text-sm font-light text-light-primary-text">
                   Nie masz konta?{" "}
                   <Link
                     href={"/register"}
-                    className="font-medium cursor-pointer text-primary-600 underline dark:text-primary-500"
+                    className="font-medium cursor-pointer underline"
                   >
                     Zarejestruj się
                   </Link>
