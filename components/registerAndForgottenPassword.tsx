@@ -1,16 +1,21 @@
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
+import { useRouter } from "next/router";
+const test = () => {
+  console.log("ffdsfd");
+};
 
-const Login = () => {
+export const RegisterAndForgottenPassword = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: "",
-      password: "",
     },
   });
+  const router = useRouter();
   const formHandler = (formValues) => {
+    //ToDo api connection
+    console.log(router.pathname);
     console.log(formValues);
   };
   return (
@@ -31,33 +36,16 @@ const Login = () => {
               onSubmit={handleSubmit((formValues) => formHandler(formValues))}
               className="space-y-4"
             >
-              <div>
-                <Input
-                  placeholder="E-mail"
-                  register={...register("email", { required: true })}
-                />
-              </div>
-              <div>
-                <Input
-                  register={...register("password", { required: true })}
-                  password
-                  placeholder={"Hasło"}
-                />
-              </div>
-              <div className="flex flex-row-reverse mb-6">
-                <Link href={"/forgottenPassword"}>Zapomniałeś hasła?</Link>
-              </div>
+              <label>
+                <div>
+                  <Input
+                    placeholder="E-mail"
+                    register={...register("email", { required: true })}
+                  />
+                </div>
+              </label>
               <div className={"flex items-center justify-between"}>
-                <span className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Nie masz konta?{" "}
-                  <Link
-                    href={"/register"}
-                    className="font-medium cursor-pointer text-primary-600 underline dark:text-primary-500"
-                  >
-                    Zarejestruj się
-                  </Link>
-                </span>
-                <Button>Zaloguj się</Button>
+                <Button onClick={test}>Wyślij</Button>
               </div>
             </form>
           </div>
@@ -66,5 +54,3 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;

@@ -4,7 +4,6 @@ interface Props {
 }
 
 export const Input = ({ password, placeholder, register }: Props) => {
-  console.log(password);
   return (
     <>
       <div>
