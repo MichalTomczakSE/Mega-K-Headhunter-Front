@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {Menu} from "@headlessui/react";
+import Link from "next/link"
 
 const links = [
     {href: '#', label: 'Konto'},
@@ -10,36 +11,29 @@ const links = [
 
 export default function Header() {
     return (
-        <header className="bg-primary-background">
-            <nav className="flex items-center justify-between flex-wrap container mx-auto pt-[13px] pb-[12px] ">
+        <header className="bg-navbar-background">
+            <nav className="flex items-center justify-between flex-wrap container mx-auto pt-[13px] pb-[12px]">
                 <div>
                     <Image src="/images/logo.png" height="55" width="89" alt="Megalogo"/>
                 </div>
-                <div>
+                <div className="text-light-primary-text relative px-[15px] text-[18px]">
                     <Menu>
-                        <Menu.Button>Options</Menu.Button>
-                        <Menu.Items>
+                        <Menu.Button as="button" className="flex items-center justify-between">
+                            <Image src="/images/user_image.png" alt="userImage" width="45" height="45" className="mr-3" />
+                            Jan Testowy
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#9E9E9E"
+                                 className="bi bi-caret-down-fill ml-[30px]" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </Menu.Button>
+                        <Menu.Items as="div" className="absolute left-0 z-10 mt-2 flex flex-col w-full px-[15px] bg-navbar-background leading-[30px]">
                             {links.map((link) => (
-                                <Menu.Item
-                                    as="a"
-                                    key={link.href}
-                                    href={link.href}
-                                    className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-                                >
-                                    {link.label}
-                                </Menu.Item>
+                                <Link href={link.href} className="py-2.5">{link.label}</Link>
                             ))}
                         </Menu.Items>
                     </Menu>
                 </div>
-
-                {/*<div className="dropdown">*/}
-                {/*    <button onClick={dropdownToggle} className="dropbtn">Jan Testowy</button>*/}
-                {/*    <div id="user_dropdown" className="dropdown-content">*/}
-                {/*        <a href="#">Konto</a>*/}
-                {/*        <a href="#">Wyloguj</a>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </nav>
         </header>
     )
