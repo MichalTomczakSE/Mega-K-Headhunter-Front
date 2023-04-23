@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 
-import { Loading } from '@/components/loading/loading';
+import { Loader } from '@/components/common/loader/loader';
 
-describe('Loading component', () => {
-	it('renders a loading', () => {
-		render(<Loading />);
+describe('Loader component', () => {
+	it('renders a loader', () => {
+		render(<Loader />);
 		const loadingIcon = screen.getByRole("status");
 		expect(loadingIcon).toBeDefined();
 	});
