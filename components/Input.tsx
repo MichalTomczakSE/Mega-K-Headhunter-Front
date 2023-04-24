@@ -1,6 +1,7 @@
-interface Props {
+interface InputProps {
   password: any;
   placeholder: string;
+  register:any;
 }
 
 export const Input = ({ password, placeholder, register }: Props) => {
