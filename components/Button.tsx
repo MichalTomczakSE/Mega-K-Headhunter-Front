@@ -1,4 +1,7 @@
-export const Button = ({ children }) => {
+interface ButtonProps { 
+children: string, 
+}
+export const Button = ({ children }: ButtonProps ) => {
   return (
     <button
       type={"submit"}
