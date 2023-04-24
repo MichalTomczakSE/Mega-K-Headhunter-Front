@@ -1,11 +1,13 @@
 interface ButtonProps { 
-children: string, 
+children: string,
+  type?:"submit" | "reset" | "button" | undefined,
+  color?:string|undefined,
 }
-export const Button = ({ children }: ButtonProps ) => {
+export const Button = ({ children,type,color }: ButtonProps ) => {
   return (
     <button
-      type={"submit"}
-      className={"bg-primary-red text-light-primary-text py-2 px-4"}
+      type={type?type:"button"}
+      className={`${color?color:"bg-primary-red"} text-light-primary-text py-2 px-4`}
     >
       {children}
     </button>

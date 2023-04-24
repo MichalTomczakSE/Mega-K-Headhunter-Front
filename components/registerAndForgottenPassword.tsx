@@ -39,7 +39,7 @@ export const RegisterAndForgottenPassword = () => {
                 </div>
               </label>
               <div className={"flex items-center justify-between"}>
-                <Button>Wyślij</Button>
+                <Button type={"submit"}>Wyślij</Button>
               </div>
             </form>
           </div>

@@ -65,7 +65,7 @@ const Login = () => {
                     Zarejestruj się
                   </Link>
                 </span>
-                <Button>Zaloguj się</Button>
+                <Button type={"submit"}>Zaloguj się</Button>
               </div>
             </form>
           </div>
