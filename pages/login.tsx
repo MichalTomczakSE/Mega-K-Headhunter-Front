@@ -1,5 +1,5 @@
-import { Input } from "@/components/Input";
-import { Button } from "@/components/Button";
+import { Input } from "@/components/common/Input";
+import { Button } from "@/components/common/Button";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,7 +18,6 @@ const Login = () => {
     },
   });
   const formHandler = (formValues:FormValues) => {
-
   };
   return (
     <>
@@ -50,7 +49,7 @@ const Login = () => {
                 />
               </div>
               <div className="flex flex-row-reverse mb-6">
-                <Link href={"/ForgottenPasswordPage"}>
+                <Link href={"/forgottenPasswordPage"}>
                   <span className={"text-light-primary-text"}>
                     Zapomniałeś hasła?
                   </span>

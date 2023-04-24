@@ -1,5 +1,5 @@
-import { Input } from "@/components/Input";
-import { Button } from "@/components/Button";
+import { Input } from "@/components/common/Input";
+import { Button } from "@/components/common/Button";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -12,7 +12,7 @@ export const RegisterAndForgottenPassword = () => {
     },
   });
   const router = useRouter();
-  const formHandler = (formValues:{email:string}) => {
+  const formHandler = (formValue:{email:string}) => {
   };
   return (
     <>
@@ -27,7 +27,7 @@ export const RegisterAndForgottenPassword = () => {
               />
             </div>
             <form
-              onSubmit={handleSubmit((formValues) => formHandler(formValues))}
+              onSubmit={handleSubmit((formValue) => formHandler(formValue))}
               className="space-y-4"
             >
               <label>
