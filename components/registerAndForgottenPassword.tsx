@@ -6,14 +6,13 @@ import Image from "next/image";
 import logo from'../public/images/logo.png'
 
 export const RegisterAndForgottenPassword = () => {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<{email:string}>({
     defaultValues: {
       email: "",
     },
   });
   const router = useRouter();
-  const formHandler = (formValues) => {
-
+  const formHandler = (formValues:{email:string}) => {
   };
   return (
     <>
@@ -35,7 +34,7 @@ export const RegisterAndForgottenPassword = () => {
                 <div>
                   <Input
                     placeholder="E-mail"
-                    register={...register("email", { required: true })}
+                    register={register("email", { required: true })}
                   />
                 </div>
               </label>

@@ -5,14 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from'../public/images/logo.png'
 
+interface FormValues{
+  email:string;
+  password:string;
+}
+
 const Login = () => {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       email: "",
       password: "",
     },
   });
-  const formHandler = (formValues) => {
+  const formHandler = (formValues:FormValues) => {
 
   };
   return (
@@ -34,12 +39,12 @@ const Login = () => {
               <div>
                 <Input
                   placeholder="E-mail"
-                  register={...register("email", { required: true })}
+                  register={register("email", { required: true })}
                 />
               </div>
               <div>
                 <Input
-                  register={...register("password", { required: true })}
+                  register={register("password", { required: true })}
                   password
                   placeholder={"Hasło"}
                 />
