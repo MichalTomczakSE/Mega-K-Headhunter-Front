@@ -1,6 +1,6 @@
 interface ButtonProps { 
 children: string,
-  type?:"submit" | "reset" | "button" | undefined,
+  type?:"submit" | "reset",
   color?:string|undefined,
 }
 export const Button = ({ children,type,color }: ButtonProps ) => {

@@ -2,9 +2,9 @@ import {UseFormRegisterReturn} from "react-hook-form";
 
 
 interface InputProps {
-  password: boolean;
+  password?: boolean;
   placeholder: string;
-    register?: UseFormRegisterReturn<string>;
+  register?: UseFormRegisterReturn<string>;
 }
 
 export const Input = ({ password, placeholder, register }: InputProps) => {
