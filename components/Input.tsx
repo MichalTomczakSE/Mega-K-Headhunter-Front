@@ -4,7 +4,7 @@ interface InputProps {
   register:any;
 }
 
-export const Input = ({ password, placeholder, register }: Props) => {
+export const Input = ({ password, placeholder, register }: InputProps) => {
   return (
     <>
       <div>
