@@ -49,7 +49,7 @@ const Login = () => {
                 />
               </div>
               <div className="flex flex-row-reverse mb-6">
-                <Link href={"/forgottenPasswordPage"}>
+                <Link href={"/forgotPassword"}>
                   <span className={"text-light-primary-text"}>
                     Zapomniałeś hasła?
                   </span>
