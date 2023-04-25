@@ -1,0 +1,3 @@
+const Rate=(rate:string)=>{
+
+}
