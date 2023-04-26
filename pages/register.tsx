@@ -1,7 +1,7 @@
 import { RegisterAndForgottenPassword } from "@/components/registerAndForgottenPassword";
 
-const register = () => {
+const Register = () => {
   return <RegisterAndForgottenPassword message={"Podaj emial w celu rejestracji"} />;
 };
 
-export default register;
+export default Register;
