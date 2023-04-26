@@ -1,5 +1,5 @@
-import {UserDetails} from "@/components/common/userProfile/userDetails";
-import {UserInfo} from "@/components/common/userProfile/userInfo";
+import {UserDetails} from "@/components/common/userProfile/userDetails/userDetails";
+import {UserInfo} from "@/components/common/userProfile/userInfo/userInfo";
 
 interface UserProps{
         icon: string,
@@ -32,17 +32,6 @@ const testUser:UserProps={
 }
 
 interface testUserInfo{
-    courseCompletion:number,
-    courseEngagement:number,
-    projectDegree:number,
-    teamProjectDegree:number,
-
-    expectedTypeWork:string,
-    targetWorkCity:string,
-    expectedContractType:string,
-    expectedSalary:number,
-    canTakeApprenticeship:string,
-    monthsOfCommercialExp:number,
 
     education:string,
     courses:string,
@@ -56,7 +45,7 @@ interface testUserInfo{
 }
 
 const test:testUserInfo={
-    courseCompletion:5,
+    /*courseCompletion:5,
     courseEngagement:4,
     projectDegree:3,
     teamProjectDegree:2,
@@ -66,7 +55,7 @@ const test:testUserInfo={
     expectedContractType:"Umowa o pracę",
     expectedSalary:16000,
     canTakeApprenticeship:"Tak",
-    monthsOfCommercialExp:1,
+    monthsOfCommercialExp:1,*/
 
     education:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     courses:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
