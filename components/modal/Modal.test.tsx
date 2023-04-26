@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-
 import { Modal } from '@/components/modal/Modal';
 
 describe('Modal component', () => {
