@@ -10,7 +10,7 @@ interface FormValues{
   password:string;
 }
 
-const Login = () => {
+const LoginPage = () => {
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       email: "",
@@ -75,4 +75,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
