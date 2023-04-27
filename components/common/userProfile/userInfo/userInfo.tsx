@@ -1,6 +1,4 @@
-import {UserDetails} from "@/components/common/userProfile/userDetails/userDetails";
-import {InfoLayout} from "@/components/common/userProfile/userInfo/infoLayout";
-import {InfoList} from "@/components/common/userProfile/userInfo/infoList";
+import {InfoList} from "./infoList";
 
 interface UserInfoInterface {
     data: {
@@ -14,17 +12,7 @@ interface UserInfoInterface {
     }
 }
 
-const layauttest={
-    name:"Oceny",
-    description:"iusfdhiausfhgiusadf"
-}
-
-
-
 export const UserInfo=({data}:UserInfoInterface)=>{
-
-
-
 return (
     <>
         <InfoList data={data}/>

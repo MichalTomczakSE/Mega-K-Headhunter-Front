@@ -1,18 +1,18 @@
 import {UserDetails} from "@/components/common/userProfile/userDetails/userDetails";
 import {UserInfo} from "@/components/common/userProfile/userInfo/userInfo";
+import {Header} from "@/components/common/Header";
+import {GoBack} from "@/components/common/goBack/goBack";
 
 interface UserProps{
-        icon: string,
         firstName: string,
         lastName: string,
         githubUsername: string,
         phoneNumber: string,
         email: string,
-    bio:string,
+        bio:string,
 }
 
 const testUser:UserProps={
-    icon:"https://source.unsplash.com/150x150/?portrait?3",
     firstName:"test",
     lastName:"test",
     githubUsername:"zrodozrodo",
@@ -72,11 +72,15 @@ const test:testUserInfo={
 
 const UserProfile=()=>{
     return (
-        <div className={"flex h-auto sm:h-full  sm:flex-row flex-col p-16 bg-primary-background space-y-2 sm:space-y-0 space-x-0 sm:space-x-2"}>
-            <div className={"sm:h-screen flex justify-center"}>
-                <UserDetails data={testUser}/>
+        <div>
+            <Header/>
+            <div className={"flex h-auto sm:h-full sm:flex-row flex-col pr-36 pt-5 pl-36 bg-primary-background space-y-2 sm:space-y-0 space-x-0 sm:space-x-2"}>
+                <GoBack/>
+                <div className={"sm:h-screen flex justify-center"}>
+                    <UserDetails data={testUser}/>
+                </div>
+                <UserInfo data={test}/>
             </div>
-            <UserInfo data={test}/>
         </div>
     )
 }

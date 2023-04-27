@@ -1,7 +1,8 @@
-import {InfoLayout} from "@/components/common/userProfile/userInfo/infoLayout";
+import {InfoLayout} from "./infoLayout";
 import {v4 as uuid} from 'uuid';
 interface UserInfoInterface {
     data: {
+        [key: string]: string | string[],
         education: string,
         courses: string,
         workExperience: string,
@@ -16,7 +17,7 @@ export const InfoList=({data}:UserInfoInterface)=>{
     const keys:string[]=Object.keys(data);
     return (
         <div>
-            {keys.map(value=><InfoLayout key={uuid} name={value} description={data[value]} />)}
+            {keys.map(value=><InfoLayout key={uuid.toString()} name={value} description={data[value]} />)}
         </div>
     )
 }

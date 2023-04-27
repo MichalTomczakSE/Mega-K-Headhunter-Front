@@ -1,7 +1,6 @@
-
+import Image from "next/image";
 interface UserProps{
     data: {
-        icon: string,
         firstName: string,
         lastName: string,
         githubUsername: string,
@@ -13,10 +12,12 @@ interface UserProps{
 
 
 export const UserDetails=({data}:UserProps)=>{
-    const {icon,firstName,lastName,githubUsername,phoneNumber,email,bio}=data;
+    const {firstName,lastName,githubUsername,phoneNumber,email,bio}=data;
  return(
-         <div className="flex flex-col h-fit w-full text-light-primary-text max-w-xs p-8 shadow-md px-12 bg-secondary-background">
-             <img src={icon} alt="" className="w-32 h-32 mx-auto rounded-full aspect-square" />
+         <div className="flex text-light-primary-text flex-col h-fit w-full text-light-primary-text max-w-xs p-8 shadow-md px-12 bg-secondary-background">
+             <picture>
+             <img src={`https://github.com/${githubUsername}.png`} alt="userPhoto" className="w-32 h-32 mx-auto rounded-full aspect-square" />
+             </picture>
              <div className="space-y-4 text-center">
                  <div className="my-2 space-y-1">
                      <h2 className="text-xl font-semibold sm:text-2xl">{firstName} {lastName}</h2>
@@ -27,21 +28,23 @@ export const UserDetails=({data}:UserProps)=>{
                      </a>
 
                  </div>
-                 <div className="flex justify-start items-center pt-2 space-x-2 ">
-                     <svg width="16" height="16" className={"fill-filter-button"}>
-                         <path fill="#444" d="M12.2 10c-1.1-.1-1.7 1.4-2.5 1.8C8.4 12.5 6 10 6 10S3.5 7.6 4.1 6.3c.5-.8 2-1.4 1.9-2.5-.1-1-2.3-4.6-3.4-3.6C.2 2.4 0 3.3 0 5.1c-.1 3.1 3.9 7 3.9 7 .4.4 3.9 4 7 3.9 1.8 0 2.7-.2 4.9-2.6 1-1.1-2.5-3.3-3.6-3.4z"></path>
-                     </svg>
-                     <span>{phoneNumber}</span>
-                 </div>
-                 <div className="flex justify-start items-center align-middle pt-2 space-x-2 ">
-                     <svg className={"w-5 h-5 fill-filter-button"} width="16" height="16" viewBox="0 0 128 96" id="email"><path d="M0 11.283V8a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8v3.283l-64 40zm66.12 48.11a4.004 4.004 0 0 1-4.24 0L0 20.717V88a8 8 0 0 0 8 8h112a8 8 0 0 0 8-8V20.717z" data-name="Layer 2"></path></svg>
-                     <span>{email}</span>
+                     <div>
+                     <div className="flex justify-start items-center pt-2 space-x-2 ">
+                         <svg width="16" height="16" className={"fill-filter-button"}>
+                             <path fill="#444" d="M12.2 10c-1.1-.1-1.7 1.4-2.5 1.8C8.4 12.5 6 10 6 10S3.5 7.6 4.1 6.3c.5-.8 2-1.4 1.9-2.5-.1-1-2.3-4.6-3.4-3.6C.2 2.4 0 3.3 0 5.1c-.1 3.1 3.9 7 3.9 7 .4.4 3.9 4 7 3.9 1.8 0 2.7-.2 4.9-2.6 1-1.1-2.5-3.3-3.6-3.4z"></path>
+                         </svg>
+                         <span>{phoneNumber}</span>
+                     </div>
+                     <div className="flex justify-start items-center align-middle pt-2 space-x-2 ">
+                         <svg className={"w-5 h-5 fill-filter-button"} width="16" height="16" viewBox="0 0 128 96" id="email"><path d="M0 11.283V8a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8v3.283l-64 40zm66.12 48.11a4.004 4.004 0 0 1-4.24 0L0 20.717V88a8 8 0 0 0 8 8h112a8 8 0 0 0 8-8V20.717z" data-name="Layer 2"></path></svg>
+                         <span>{email}</span>
+                     </div>
                  </div>
                  <div className={"text-left flex flex-col space-y-2"}>
                      <span className={"text-filter-button font-semibold"}>O mnie</span>
-                     <span className={"content-center text-light-primary-text h-64 overflow-y-scroll no-scrollbar"}>{bio}</span>
+                     <span className={"content-center text-light-primary-text h-44 font-normal text-sm overflow-y-scroll no-scrollbar"}>{bio}</span>
                  </div>
-                 <div className={"flex flex-row justify-center "}>
+                 <div className={"flex flex-col justify-center "}>
                      <button>dads</button>
                      <button>dads</button>
                  </div>
