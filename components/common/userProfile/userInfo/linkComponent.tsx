@@ -1,9 +1,9 @@
 
-interface Props{
+interface LinkComponentProps{
     url:string
 }
 
-export const LinkComponent=({url}:Props)=>{
+export const LinkComponent=({url}:LinkComponentProps)=>{
     return(
         <a href={url} target="_blank"  className={"flex justify-start items-center flex-row"}>
             <svg className={"fill-hyperlink-text"} viewBox="240.614 158.558 33.92 33.92" width="24" height="24">

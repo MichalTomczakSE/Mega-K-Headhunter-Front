@@ -1,13 +1,8 @@
 import Image from "next/image";
+import {UserDetailsInterface} from "@/interfaces/user/userInterfaces";
+
 interface UserProps{
-    data: {
-        firstName: string,
-        lastName: string,
-        githubUsername: string,
-        phoneNumber: string,
-        email: string,
-        bio:string,
-    }
+    data: UserDetailsInterface
 }
 
 
@@ -15,9 +10,9 @@ export const UserDetails=({data}:UserProps)=>{
     const {firstName,lastName,githubUsername,phoneNumber,email,bio}=data;
  return(
          <div className="flex text-light-primary-text flex-col h-fit w-full text-light-primary-text max-w-xs p-8 shadow-md px-12 bg-secondary-background">
-             <picture>
-             <img src={`https://github.com/${githubUsername}.png`} alt="userPhoto" className="w-32 h-32 mx-auto rounded-full aspect-square" />
-             </picture>
+
+             <Image src={`https://github.com/${githubUsername}.png`} alt="userPhoto" width={100} height={100} className="w-32 h-32 mx-auto rounded-full aspect-square" />
+
              <div className="space-y-4 text-center">
                  <div className="my-2 space-y-1">
                      <h2 className="text-xl font-semibold sm:text-2xl">{firstName} {lastName}</h2>

@@ -1,5 +1,6 @@
 import {LinkComponent} from "./linkComponent";
 import {v4 as uuid} from 'uuid';
+
 interface DetailsInterface{
 
     name: string,
@@ -9,6 +10,7 @@ interface DetailsInterface{
 }
 
 export const InfoLayout=({name,description,elements}:DetailsInterface)=>{
+
     return (
         <div className={"flex w-full flex-col"}>
             <div className={"h-14 p-5 flex justify-start text-lg text-light-primary-text items-center bg-secondary-background"}>

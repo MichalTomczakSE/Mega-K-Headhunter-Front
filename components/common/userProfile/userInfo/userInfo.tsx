@@ -1,18 +1,11 @@
 import {InfoList} from "./infoList";
+import {UserInfoInterface} from "@/interfaces/user/userInterfaces";
 
-interface UserInfoInterface {
-    data: {
-        education: string,
-        courses: string,
-        workExperience: string,
-
-        portfolioUrls: string[],
-        projectUrls: string[],
-        bonusProjectUrls: string[],
-    }
+interface PropsInterface {
+    data: UserInfoInterface
 }
 
-export const UserInfo=({data}:UserInfoInterface)=>{
+export const UserInfo=({data}:PropsInterface)=>{
 return (
     <>
         <InfoList data={data}/>

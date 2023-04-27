@@ -1,19 +1,11 @@
 import {InfoLayout} from "./infoLayout";
 import {v4 as uuid} from 'uuid';
-interface UserInfoInterface {
-    data: {
-        [key: string]: string | string[],
-        education: string,
-        courses: string,
-        workExperience: string,
-
-        portfolioUrls: string[],
-        projectUrls: string[],
-        bonusProjectUrls: string[],
-    }
+import {UserInfoInterface} from "@/interfaces/user/userInterfaces";
+interface PropsInterface {
+    data: UserInfoInterface
 }
 
-export const InfoList=({data}:UserInfoInterface)=>{
+export const InfoList=({data}:PropsInterface)=>{
     const keys:string[]=Object.keys(data);
     return (
         <div>
