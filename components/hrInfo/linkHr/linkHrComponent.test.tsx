@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Link from "next/link";
 
-import { LinkHrComponent } from '@/components/hrInfo/linkHrComponent';
+import { LinkHrComponent } from '@/components/hrInfo/linkHr/linkHrComponent';
 
 describe('Link component', () => {
 	it('renders links', () => {
