@@ -19,7 +19,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       id='wrapper'
       onClick={handleClose}>
       <div className='container max-w-lg flex flex-col'>
-        <div className='bg-filter-background p-2'>
+        <div className='bg-filter-background px-4 py-2'>
           {children}
         </div>
       </div>
