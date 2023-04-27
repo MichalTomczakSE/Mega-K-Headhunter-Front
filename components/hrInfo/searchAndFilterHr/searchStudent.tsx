@@ -12,7 +12,7 @@ export const SearchStudent = () => {
 		setSearch(inputVal);
 	};
 
-	function handleKeyDown(e: KeyboardEvent<HTMLInputElement>): void {
+	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
 		if (e.key === 'Enter') {
 			setSearchFromLocalState(e);
 			console.log(inputVal);
