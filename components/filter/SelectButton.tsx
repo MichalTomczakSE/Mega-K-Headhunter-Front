@@ -18,13 +18,9 @@ export const SelectButton = ({ filterTitle, buttons, multipleChoice, onSelectCli
 
   useEffect(() => {
     if (onReset) {
-      resetButton();
+      setSelectedButtons([]);
     }
   }, [onReset]);
-
-  const resetButton = () => {
-    setSelectedButtons([]);
-  };
 
   const handleButtonClick = (buttonIndex: number) => {
     if (multipleChoice) {
