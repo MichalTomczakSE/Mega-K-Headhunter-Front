@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { OneStudentResponse } from '../../../mega-k-headhunter-back/src/types/student/student-entity';
 import { Button } from '@/components/common/Button';
 import { Modal } from '@/components/modal/Modal';
 import { GradeButton } from '@/components/filter/GradeButton';
@@ -7,6 +6,7 @@ import { SelectButton } from '@/components/filter/SelectButton';
 import { SalaryInput } from '@/components/filter/SalaryInput';
 import { RadioForm } from '@/components/filter/RadioForm';
 import { ExperienceInput } from '@/components/filter/ExperienceInput';
+import { OneStudentResponse } from '@/types';
 
 
 type StudentDegreeForm = Pick<OneStudentResponse['degrees'], 'courseCompletion' | 'courseEngagement' | 'projectDegree' | 'teamProjectDegree'>;
@@ -104,10 +104,11 @@ export const FilterForm = () => {
         <div>
           <div
             className='flex items-center justify-between my-5'>
-            <p
+            <h2
             className="text-[22px] font-bold">
               Filtrowanie
-            </p>
+            </h2
+>
             <Button
               onClick={handleClearButtonClick}
               color='bg-clear-button'>
