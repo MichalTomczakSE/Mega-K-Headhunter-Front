@@ -17,7 +17,7 @@ export const GradeButton = ({ grade, onGradeSelected, filterTitle, onReset }: Gr
         setSelectedIndex(null);
         onGradeSelected(0)
     }
-  }, [onReset]);
+  }, [onReset, onGradeSelected]);
 
   const getStarFillColor = (index: number) => {
     return selectedIndex === index ? '#f7f7f7' : '#e02735';
