@@ -104,7 +104,10 @@ export const FilterForm = () => {
         <div>
           <div
             className='flex items-center justify-between my-5'>
-            Filtrowanie
+            <p
+            className="text-[22px] font-bold">
+              Filtrowanie
+            </p>
             <Button
               onClick={handleClearButtonClick}
               color='bg-clear-button'>
