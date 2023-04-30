@@ -14,7 +14,8 @@ export const GradeButton = ({ grade, onGradeSelected, filterTitle, onReset }: Gr
 
   useEffect(() => {
     if (onReset) {
-      resetButton();
+        setSelectedIndex(null);
+        onGradeSelected(0)
     }
   }, [onReset]);
 
@@ -27,10 +28,7 @@ export const GradeButton = ({ grade, onGradeSelected, filterTitle, onReset }: Gr
     onGradeSelected(value);
   };
 
-  const resetButton = () => {
-    setSelectedIndex(null);
-    onGradeSelected(0)
-  };
+
 
   return (
     <>
