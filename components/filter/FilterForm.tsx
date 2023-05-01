@@ -156,7 +156,7 @@ export const FilterForm = () => {
             filterTitle='Zgoda na odbycie bezpłatnych praktyk/stażu na początek'
             onRadioChange={(value) => handlePreferencesSelected('canTakeApprenticeship', (value == 'Tak'))}
             radioOptions={['Tak', 'Nie']}
-            initialValue='Tak'
+            initialValue='Nie'
           />
           <ExperienceInput
             filterTitle='Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu'
