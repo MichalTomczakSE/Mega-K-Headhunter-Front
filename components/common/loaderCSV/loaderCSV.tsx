@@ -69,7 +69,6 @@ export const LoaderCSV=()=> {
             fileReader.readAsText(file);
         }
     },[file])
-    console.log(headerValid)
     return (
         <div>
 
@@ -112,7 +111,7 @@ export const LoaderCSV=()=> {
                 </table>
             </div>
             <div className={"space-y-3 space-x-2"}>
-            <Button disabled={errorRows?.size==0} onClick={deleteErrors}>Usuń błędne rekordy</Button><Button disabled={errorRows?.size!=0} onClick={submitCsv}>Wyślij do bazy </Button>
+            <Button disabled={errorRows?.size===0||array.length===0} onClick={deleteErrors}>Usuń błędne rekordy</Button><Button disabled={errorRows?.size!==0||array.length===0} onClick={submitCsv}>Wyślij do bazy </Button>
             </div>
             <div className=" w-full overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500">
@@ -177,25 +176,3 @@ export const LoaderCSV=()=> {
         </div>
     );
 }
-
-/*
-            <table>
-                <thead>
-                <tr key={"header"}>
-                    {headerKeys.map((key) => (
-                        <th>{key}</th>
-                    ))}
-                </tr>
-                </thead>
-
-                <tbody>
-                {array.map((item) => (
-                    <tr key={item.id}>
-                        {Object.values(item).map((val) => (
-                            <td>{val}</td>
-                        ))}
-                    </tr>
-                ))}
-                </tbody>
-            </table>
- */

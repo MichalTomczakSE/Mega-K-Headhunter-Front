@@ -16,7 +16,6 @@ export const ValidationCSV=(
     setErrorRows:(value: (((prevState: (Set<number> | undefined)) => (Set<number> | undefined)) | Set<number> | undefined)) => void,
     setHeaderValid:(value: (((prevState: boolean) => boolean) | boolean)) => void
 )=>{
-    console.log(csv)
 
     const keys=Object.keys(csv[0])
 
