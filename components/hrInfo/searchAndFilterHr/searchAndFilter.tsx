@@ -1,11 +1,11 @@
 import {SearchStudent} from "@/components/hrInfo/searchAndFilterHr/searchStudent";
-import {BtnFilter} from "@/components/hrInfo/btnFilter/btnFilter";
+import {Filter} from "@/components/hrInfo/Filter/Filter";
 
 export const SearchAndFilter = () => {
 	return (
 		<>
 			<SearchStudent/>
-			<BtnFilter/>
+			<Filter/>
 		</>
 	)
 };

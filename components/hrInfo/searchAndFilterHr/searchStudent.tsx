@@ -22,7 +22,7 @@ export const SearchStudent = () => {
 	return (
 		<form className='w-full relative flex items-center' onSubmit={setSearchFromLocalState}>
 			<SlMagnifier className='absolute '/>
-			<input className=' pl-6 bg-navbar-background text-base w-25/100' type="text" value={inputVal}
+			<input className=' pl-6 bg-navbar-background w-25/100' type="text" value={inputVal}
 						 onKeyDown={handleKeyDown} placeholder="szukaj" onChange={e => setInputVal(e.target.value)}/>
 		</form>
 	);
