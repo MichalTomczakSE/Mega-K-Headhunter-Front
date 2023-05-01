@@ -3,13 +3,11 @@ import {LoaderCSV} from "@/components/common/loaderCSV/loaderCSV";
 
 export default function Home() {
     return (
-        <>
+        <div>
             <Header/>
-            <section className="bg-primary-background h-[100vh]">
-                <div className={"w-36 h-36"}>
+            <section className="bg-primary-background w-full h-[100vh]">
                     <LoaderCSV/>
-                </div>
             </section>
-        </>
+        </div>
     )
 }

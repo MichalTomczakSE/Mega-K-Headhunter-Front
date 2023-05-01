@@ -1,5 +1,6 @@
 import {ChangeEvent, useEffect, useState} from "react";
 import {ValidationCSV} from "@/components/common/loaderCSV/validationCSV";
+import {Button} from "@/components/common/Button";
 
 interface csv{
     email:string,
@@ -10,9 +11,6 @@ interface csv{
     bonusProjectUrls:string,
 }
 
-interface MyObject {
-    [key: string]: string;
-}
 
 export const LoaderCSV=()=> {
     const [file, setFile] = useState<File>();
@@ -27,6 +25,22 @@ export const LoaderCSV=()=> {
             e.target.value = "";
         }
     };
+
+    const submitCsv=()=>{
+
+        //useFetch...
+        if(errorRows?.size==0) {
+            setArray([]);
+            setErrorRows(new Set());
+            setHeaderValid(true);
+        }
+    }
+
+    const deleteErrors=()=>{
+        const goodData=array.filter((row,index)=>!errorRows?.has(index))
+        setErrorRows(new Set());
+        setArray(goodData);
+    }
 
     useEffect(()=>{
         const fileReader = new FileReader();
@@ -58,11 +72,11 @@ export const LoaderCSV=()=> {
     console.log(headerValid)
     return (
         <div>
-            <div className={"flex flex-row w-screen"}>
 
-            <form>
+            <div className={"flex flex-row overflow-x-hidden w-auto"}>
+            <form className={"w-1/3"}>
                 <span>Przeciągnij plik lub wybierz go przez kliknięcie</span>
-                <div className={"h-44 w-44 border-2 border-primary-red"}>
+                <div className={"h-44 min-w-44 border-2 border-primary-red"}>
                 <input
                     className={"opacity-0 h-full w-full "}
                     type={"file"}
@@ -71,15 +85,14 @@ export const LoaderCSV=()=> {
                     onChange={(e)=>handleOnChange(e)}
                 />
                 </div>
-
             </form>
-                <table className="w-screen text-sm text-left text-gray-500">
+                <table className=" w-full text-sm text-left text-gray-500">
                     <thead className="text-xs text-light-primary-text bg-primary-background">
                     <tr>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Ilość błędnych wierszy
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className="py-3">
                             Indeksy błędnych wierszy
                         </th>
                     </tr>
@@ -96,31 +109,34 @@ export const LoaderCSV=()=> {
                         </td>
                     </tr>
                     </tbody>
-                    </table>
+                </table>
             </div>
-            <div className="relative">
-                <table className="w-screen text-sm text-left text-gray-500 ">
+            <div className={"space-y-3 space-x-2"}>
+            <Button disabled={errorRows?.size==0} onClick={deleteErrors}>Usuń błędne rekordy</Button><Button disabled={errorRows?.size!=0} onClick={submitCsv}>Wyślij do bazy </Button>
+            </div>
+            <div className=" w-full overflow-x-auto">
+                <table className="w-full text-sm text-left text-gray-500">
                     <thead className={`text-xs text-light-primary-text ${headerValid?"bg-primary-background":"bg-primary-red"}`}>
                     <tr>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Indeks
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className="py-3">
                             Email
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Ocena przejścia kursu
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Ocena aktywności
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Ocena kodu
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Ocena pracy w Scrum
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className=" py-3">
                             Url projektu
                         </th>
                     </tr>
@@ -129,26 +145,26 @@ export const LoaderCSV=()=> {
                     {headerValid&& array.map((row,index)=>
                         <tr className={`border-b ${errorRows?.has(index)?"bg-primary-red":""}`} key={index} >
                             <td scope="row"
-                                className={`px-6 py-4`}>
+                                className={` py-4`}>
                                 {index}
                             </td>
                         <th scope="row"
-                            className={`px-6 py-4 font-medium text-light-primary-text whitespace-nowrap`}>
+                            className={`px-2 py-4 font-medium text-light-primary-text whitespace-nowrap`}>
                             {row.email}
                         </th>
-                        <td className="px-6 py-4">
+                        <td className=" py-4">
                             {row.courseCompletion}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className=" py-4">
                             {row.courseEngagement}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="py-4">
                             {row.projectDegree}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className=" py-4">
                             {row.teamProjectDegree}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-2 py-4">
                             {row.bonusProjectUrls}
                         </td>
                     </tr>)}

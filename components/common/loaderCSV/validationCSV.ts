@@ -1,8 +1,6 @@
 import {object} from "prop-types";
 
-interface CsvRow {
-    [key: string]: string|undefined;
-}
+
 interface csv{
     email:string,
     courseCompletion:string,
@@ -23,7 +21,6 @@ export const ValidationCSV=(
     const keys=Object.keys(csv[0])
 
     if(keys.toString()=="email,courseCompletion,courseEngagement,projectDegree,teamProjectDegree,bonusProjectUrls") {
-        console.log("działa")
         setHeaderValid(true)
 
         const errorRows = new Set<number>();
@@ -33,11 +30,21 @@ export const ValidationCSV=(
                     errorRows.add(_index);
                 }
             })
+            if(
+                isNaN(Number(row.courseCompletion))||
+                isNaN(Number(row.courseEngagement))||
+                isNaN(Number(row.projectDegree))||
+                isNaN(Number(row.teamProjectDegree))
+                ){
+                errorRows.add(_index);
+            }
         })
         setErrorRows(errorRows);
+
+
+
     }
     else {
-        console.log("nie działa")
         setHeaderValid(false)
         const errorRows = new Set<number>();
         setErrorRows(errorRows);
