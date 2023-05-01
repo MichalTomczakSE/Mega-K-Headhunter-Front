@@ -97,7 +97,7 @@ export const LoaderCSV=()=> {
                             {headerValid?"":<span>Błąd w nagłówku</span>}
                         </td>
                         <td scope="col" className="px-6 py-3">
-                            {errorRows&&Array.from(errorRows).join(',')}
+                            {errorRows&&Array.from(errorRows).map(x=>x+1).join(',')}
                             {headerValid?"":"0"}
                         </td>
                     </tr>
@@ -105,7 +105,7 @@ export const LoaderCSV=()=> {
                 </table>
             </div>
             <div className={"space-y-3 space-x-2"}>
-            <Button disabled={errorRows?.size===0||array.length===0} onClick={deleteErrors}>Usuń błędne rekordy</Button><Button disabled={errorRows?.size!==0||array.length===0} onClick={submitCsv}>Wyślij do bazy </Button>
+            <Button disabled={errorRows?.size===0||array.length===0} onClick={deleteErrors}>Usuń błędne rekordy</Button><Button disabled={errorRows?.size!==0||array.length===0||!headerValid} onClick={submitCsv}>Wyślij do bazy </Button>
             </div>
             <div className=" w-full overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500">
@@ -139,7 +139,7 @@ export const LoaderCSV=()=> {
                         <tr className={`border-b ${errorRows?.has(index)?"bg-primary-red":""}`} key={index} >
                             <td scope="row"
                                 className={` py-4`}>
-                                {index}
+                                {index+1}
                             </td>
                         <th scope="row"
                             className={`px-2 py-4 font-medium text-light-primary-text whitespace-nowrap`}>
