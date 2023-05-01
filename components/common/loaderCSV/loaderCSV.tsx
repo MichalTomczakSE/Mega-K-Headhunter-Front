@@ -1,20 +1,14 @@
 import {ChangeEvent, useEffect, useState} from "react";
 import {ValidationCSV} from "@/components/common/loaderCSV/validationCSV";
 import {Button} from "@/components/common/Button";
+import {CsvFileProps} from "@/components/common/loaderCSV/interfaces/csv";
 
-interface csv{
-    email:string,
-    courseCompletion:string,
-    courseEngagement:string,
-    projectDegree:string,
-    teamProjectDegree:string,
-    bonusProjectUrls:string,
-}
+
 
 
 export const LoaderCSV=()=> {
     const [file, setFile] = useState<File>();
-    const [array, setArray] = useState<Array<csv>>([]);
+    const [array, setArray] = useState<Array<CsvFileProps>>([]);
     const [errorRows,setErrorRows]=useState<Set<number>>()
     const [headerValid,setHeaderValid]=useState<boolean>(true)
 
@@ -57,13 +51,13 @@ export const LoaderCSV=()=> {
 
 
                 const arr=rows.map(row=>{
-                    return header.reduce((object:csv, header, index) => {
-                        object[header as keyof csv] = row[index];
+                    return header.reduce((object:CsvFileProps, header, index) => {
+                        object[header as keyof CsvFileProps] = row[index];
                         return object;
-                    }, {} as csv);
+                    }, {} as CsvFileProps);
                 })
                 ValidationCSV(arr,setErrorRows,setHeaderValid);
-                setArray(arr as Array<csv>);
+                setArray(arr as Array<CsvFileProps>);
             };
 
             fileReader.readAsText(file);

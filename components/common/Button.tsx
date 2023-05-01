@@ -1,5 +1,7 @@
-interface ButtonProps { 
-children: string,
+import {ReactNode} from "react";
+
+interface ButtonProps {
+children: ReactNode,
   type?:"submit" | "reset",
   color?:string,
   onClick?:() => void,

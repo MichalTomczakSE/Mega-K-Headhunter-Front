@@ -11,7 +11,7 @@ const links = [
 
 export const Header = () => {
     return (
-        <header className="bg-navbar-background ">
+        <header className="bg-navbar-background">
             <nav className="flex items-center justify-between flex-wrap container mx-auto pt-[13px] pb-[12px]">
                 <div>
                     <Image src="/images/logo.png" height="55" width="89" alt="Megalogo"/>

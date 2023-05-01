@@ -1,18 +1,8 @@
-import {object} from "prop-types";
-
-
-interface csv{
-    email:string,
-    courseCompletion:string,
-    courseEngagement:string,
-    projectDegree:string,
-    teamProjectDegree:string,
-    bonusProjectUrls:string,
-}
+import {CsvFileProps} from "@/components/common/loaderCSV/interfaces/csv";
 
 
 export const ValidationCSV=(
-    csv:Array<csv>,
+    csv:Array<CsvFileProps>,
     setErrorRows:(value: (((prevState: (Set<number> | undefined)) => (Set<number> | undefined)) | Set<number> | undefined)) => void,
     setHeaderValid:(value: (((prevState: boolean) => boolean) | boolean)) => void
 )=>{
@@ -23,9 +13,9 @@ export const ValidationCSV=(
         setHeaderValid(true)
 
         const errorRows = new Set<number>();
-        csv.forEach((row: csv, _index) => {
+        csv.forEach((row: CsvFileProps, _index) => {
             keys.forEach((key, index) => {
-                if (row[keys[index] as keyof csv] == undefined) {
+                if (row[keys[index] as keyof CsvFileProps] == undefined) {
                     errorRows.add(_index);
                 }
             })
