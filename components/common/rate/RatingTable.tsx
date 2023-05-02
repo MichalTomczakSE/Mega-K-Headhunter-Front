@@ -1,4 +1,4 @@
-import { StudentDegreesEntity, StudentEntity } from '@/../mega-k-headhunter-back/src/types';
+import { StudentDegreesEntity, StudentEntity } from '@/types';
 import {
   RateElementWithNumber,
   RateElementWithText,

@@ -1,4 +1,4 @@
-import { StudentEntity } from '@/../mega-k-headhunter-back/src/types'
+import { StudentEntity } from '@/types'
 
 
 export const studentMock: StudentEntity[]  = [
