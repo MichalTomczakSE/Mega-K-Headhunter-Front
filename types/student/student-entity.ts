@@ -1,3 +1,5 @@
+import { GradingScale } from '@/types';
+
 export interface StudentEntity {
   id: string;
   email: string;
@@ -22,7 +24,7 @@ export interface StudentEntity {
   grades:Grades;
 }
 
-export type GradingScale = 0 | 1 | 2 | 3 | 4 | 5;
+
 
 interface Grades {
   courseCompletion: GradingScale;
