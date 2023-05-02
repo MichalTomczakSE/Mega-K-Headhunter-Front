@@ -15,17 +15,20 @@ const StudentListElement = () => {
     }
   };
   return (
-    <>
+    <div
+    className="border-b-filter-background">
       {studentMock.map((student) => (
         <div
+          className='border-b-[15px] lg:px-4 border-navbar-background bg-secondary-background'
           key={student.firstName + student.id}>
           <li
             key={student.id}
-            className='text-sm sm:text-lg px-4 py-5 border border-filter-background'
+            className='text-sm sm:text-lg px-4 py-5 '
            >
             <div
               className='flex items-center justify-between'>
-              <div>
+              <div
+              className='ml-2'>
                 {student.firstName} {student.lastName.slice(0, 1)}.
               </div>
               <div
@@ -81,7 +84,7 @@ const StudentListElement = () => {
           }
         </div>
       ))}
-    </>
+    </div>
   );
 };
 export const StudentList = () => {
