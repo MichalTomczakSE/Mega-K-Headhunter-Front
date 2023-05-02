@@ -8,7 +8,7 @@ interface RateElementProps {
 export const RateElementWithNumber = ({ children, title }: RateElementProps) => {
   return (
     <li
-      className='flex flex-col px-5 py-2 border-b-2 xl:border-b-0  sm:border-r-2 border-secondary-background sm:last:border-r-0 lg:last:border-r-2'>
+      className='flex flex-col px-5 py-2 border-b-2 xl:border-b-0  sm:border-r-2 border-secondary-background sm:last:border-r-0  xl:last:border-r-2'>
       <div className='text-xs flex-grow'>
         {title}
       </div>
@@ -24,7 +24,7 @@ export const RateElementWithNumber = ({ children, title }: RateElementProps) => 
 export const RateElementWithText = ({ children, title }: RateElementProps) => {
   return (
     <li
-      className='flex flex-col px-5 py-2 border-b-2 xl:border-b-0 sm:border-r-2 border-secondary-background sm:even:border-r-0 lg:even:border-r-2 last:border-r-0'>
+      className='flex flex-col px-5 py-2 border-b-2 xl:border-b-0 sm:border-r-2 border-secondary-background sm:even:border-r-0 xl:even:border-r-2  xl:even:last:border-r-0'>
       <h3 className='text-xs flex-grow'>
         {title}
       </h3>
