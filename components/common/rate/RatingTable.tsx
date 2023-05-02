@@ -35,9 +35,9 @@ export const RatingTable = ({
                               monthsOfCommercialExp,
                             }: Rating) => {
   return (
-    <ul className='flex xl:flex-row flex-col px-2 bg-grades-background'>
+    <ul className='flex xl:flex-row flex-col px-2'>
      <div
-     className='sm:grid sm:grid-cols-4 sm:text-center xl:text-left '>
+     className='sm:grid sm:grid-cols-4 sm:text-center xl:text-left bg-grades-background'>
        <RateElementWithNumber title='Ocena przejścia kursu'>
         {courseCompletion}
       </RateElementWithNumber>
@@ -52,7 +52,7 @@ export const RatingTable = ({
       </RateElementWithNumber>
      </div>
       <div
-      className='sm:grid xl:flex sm:grid-cols-2 sm:text-center'>
+      className='sm:grid xl:flex sm:grid-cols-2 sm:text-center xl:text-left bg-grades-background'>
       <RateElementWithText title='Preferowane miejsce pracy'>
         {expectedTypeWork == 1 ? 'Biuro' : 'Zdalnie'}
       </RateElementWithText>
@@ -69,7 +69,7 @@ export const RatingTable = ({
         {canTakeApprenticeship ? 'TAK' : 'NIE'}
       </RateElementWithText>
       <RateElementWithText title='Komercyjne doświadczenie w programowaniu'>
-        {monthsOfCommercialExp? `${monthsOfCommercialExp} msc.` : 'Nie podano' }
+        {monthsOfCommercialExp? `${monthsOfCommercialExp} miesięcy` : 'Nie podano' }
       </RateElementWithText>
       </div>
     </ul>
