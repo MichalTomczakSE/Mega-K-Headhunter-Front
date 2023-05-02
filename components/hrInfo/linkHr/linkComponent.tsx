@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const LinkHrComponent = () => {
+export const LinkComponent = () => {
 	return (
 		<div>
 			<ul className='flex gap-x-14 '>

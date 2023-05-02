@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import Link from "next/link";
 
-import { LinkHrComponent } from '@/components/hrInfo/linkHr/linkHrComponent';
+import { LinkComponent } from '@/components/hrInfo/linkHr/linkComponent';
 
 describe('Link component', () => {
 	it('renders links', () => {
-		render(<LinkHrComponent />);
+		render(<LinkComponent />);
 		const links = screen.getAllByRole("link");
 		expect(links).toHaveLength(2);
 	});
