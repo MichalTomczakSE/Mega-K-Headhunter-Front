@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import { studentMock } from '@/components/common/student/StudentMock';
 import { Button } from '@/components/common/Button';
 import { RatingTable } from '@/components/common/rate/RatingTable';
@@ -16,7 +16,7 @@ const StudentListElement = () => {
   };
   return (
     <div
-    className="border-b-filter-background">
+      className='border-b-filter-background'>
       {studentMock.map((student) => (
         <div
           className='border-b-[15px] lg:px-4 border-navbar-background bg-secondary-background'
@@ -24,11 +24,11 @@ const StudentListElement = () => {
           <li
             key={student.id}
             className='text-sm sm:text-lg px-4 py-5 '
-           >
+          >
             <div
               className='flex items-center justify-between'>
               <div
-              className='ml-2'>
+                className='ml-2'>
                 {student.firstName} {student.lastName.slice(0, 1)}.
               </div>
               <div
@@ -67,21 +67,26 @@ const StudentListElement = () => {
                 </div>
               </div>
             </div>
-            <div>
-            </div>
           </li>
-          {expandedStudentId === student.id && <RatingTable courseCompletion={student.grades.courseCompletion}
-                                                            courseEngagement={student.grades.courseEngagement}
-                                                            projectDegree={student.grades.projectDegree}
-                                                            teamProjectDegree={student.grades.teamProjectDegree}
-                                                            expectedTypeWork={student.expectedTypeWork}
-                                                            targetWorkCity={student.targetWorkCity}
-                                                            expectedSalary={student.expectedSalary}
-                                                            expectedContractType={student.expectedContractType}
-                                                            canTakeApprenticeship={student.canTakeApprenticeship}
-                                                            monthsOfCommercialExp={student.monthsOfCommercialExp}
-          />
-          }
+          <div
+            className={`overflow-hidden ${
+              expandedStudentId == student.id
+                ? 'max-h-[1000px] duration-1000 ease-in-out delay-100'
+                : 'max-h-[0px] duration-300 ease-in-out'
+            } `}
+          >
+              <RatingTable courseCompletion={student.grades.courseCompletion}
+                                                                courseEngagement={student.grades.courseEngagement}
+                                                                projectDegree={student.grades.projectDegree}
+                                                                teamProjectDegree={student.grades.teamProjectDegree}
+                                                                expectedTypeWork={student.expectedTypeWork}
+                                                                targetWorkCity={student.targetWorkCity}
+                                                                expectedSalary={student.expectedSalary}
+                                                                expectedContractType={student.expectedContractType}
+                                                                canTakeApprenticeship={student.canTakeApprenticeship}
+                                                                monthsOfCommercialExp={student.monthsOfCommercialExp}
+              />
+          </div>
         </div>
       ))}
     </div>
