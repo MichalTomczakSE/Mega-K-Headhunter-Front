@@ -1394,7 +1394,7 @@ cjs-module-lexer@^1.0.0:
 
 client-only@0.0.1, client-only@^0.0.1:
   version "0.0.1"
-  resolved "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
 
 cliui@^8.0.1:
@@ -2272,7 +2272,11 @@ glob@^7.1.3, glob@^7.1.4:
 
 globals@^11.1.0:
   version "11.12.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/globals/-/globals-11.12.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
+>>>>>>> c6d6d568585666f6f0cd9f09baf217cb70a73b22
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
 globals@^13.19.0:
