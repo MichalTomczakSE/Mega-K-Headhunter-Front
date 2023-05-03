@@ -8,14 +8,14 @@ export const ValidationCSV=(
 )=>{
 
     const keys=Object.keys(csv[0])
-
+    console.log(csv)
     if(keys.toString()=="email,courseCompletion,courseEngagement,projectDegree,teamProjectDegree,bonusProjectUrls") {
         setHeaderValid(true)
 
         const errorRows = new Set<number>();
         csv.forEach((row: CsvFileProps, _index) => {
             keys.forEach((key, index) => {
-                if (row[keys[index] as keyof CsvFileProps] == undefined) {
+                if (row[keys[index] as keyof CsvFileProps] == '') {
                     errorRows.add(_index);
                 }
             })

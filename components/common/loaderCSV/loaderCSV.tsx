@@ -44,10 +44,10 @@ export const LoaderCSV=()=> {
                 const text:string = event.target.result as string;
                 const unformedData= text.replaceAll('"','')
                 const data=unformedData.split('\r\n')
-                const header=data[0].split(',');
+                const header=data[0].split(';');
                 data.splice(0, 1);
                 data.splice(-1, 1);
-                const rows=data.map(row=>row.split(','))
+                const rows=data.map(row=>row.split(';'))
 
 
                 const arr=rows.map(row=>{
