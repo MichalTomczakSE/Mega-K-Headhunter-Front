@@ -22,7 +22,20 @@ export const RegisterAndForgottenPassword = ({message,type}:Props) => {
   const router = useRouter();
   const formHandler =async (formValue:{email:string}) => {
     await setIsLoading(true)
-
+  if(type==='register')
+  {
+    const resp=fetch("",{
+      method:"POST",
+      body:JSON.stringify(formValue),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  }
+  else if(type==="forgot")
+  {
+    const resp=fetch("")
+  }
   };
   return (
     <>
