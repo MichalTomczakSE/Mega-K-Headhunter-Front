@@ -1,7 +1,7 @@
 import {CsvFileProps} from "@/components/common/loaderCSV/interfaces/csv";
 
 
-const checkValue=(number:Number)=>{
+const checkValue=(number:number)=>{
     return !(number >= 0 && number <= 5);
 }
 
@@ -15,7 +15,6 @@ export const ValidationCSV=(
 
 
     const keys=Object.keys(csv[0])
-    console.log(csv)
     if(keys.toString()=="email,courseCompletion,courseEngagement,projectDegree,teamProjectDegree,bonusProjectUrls") {
         setHeaderValid(true)
 
