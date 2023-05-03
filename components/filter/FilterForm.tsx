@@ -80,14 +80,14 @@ export const FilterForm = () => {
 
 
   return (
-    <>
+    <div className='text-left'>
       <Button
         color='bg-navbar-background'
         onClick={() =>
           setShowModal(true)
         }>
         <svg
-          className='inline mr-1 mb-1'
+          className='mr-1 mb-1'
           xmlns='http://www.w3.org/2000/svg'
           width='12'
           height='12'
@@ -98,6 +98,7 @@ export const FilterForm = () => {
         </svg>
         Filtrowanie
       </Button>
+
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}>
@@ -175,6 +176,6 @@ export const FilterForm = () => {
           </div>
         </div>
       </Modal>
-    </>
+    </div>
   );
 };

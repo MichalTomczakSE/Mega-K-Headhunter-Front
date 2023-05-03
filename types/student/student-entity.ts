@@ -30,8 +30,6 @@ export interface StudentEntity {
   status: StudentStatus;
 };
 
-
-
 export interface OneStudentResponse {
   id: string,
   githubUsername: string,

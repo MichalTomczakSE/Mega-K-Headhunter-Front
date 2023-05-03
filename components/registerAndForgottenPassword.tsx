@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import logo from'../public/images/logo.png'
+import Link from 'next/link';
 
 
 interface Props{
@@ -25,11 +26,13 @@ export const RegisterAndForgottenPassword = ({message}:Props) => {
         <div className="w-full md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
+              <Link href="/">
               <Image
                 alt={"megak"}
                 src={logo}
                 className={"object-fill w-36 "}
               />
+              </Link>
             </div>
             <form
               onSubmit={handleSubmit((formValue) => formHandler(formValue))}
