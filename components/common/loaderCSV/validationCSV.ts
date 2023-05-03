@@ -1,11 +1,18 @@
 import {CsvFileProps} from "@/components/common/loaderCSV/interfaces/csv";
 
 
+const checkValue=(number:Number)=>{
+    return !(number >= 0 && number <= 5);
+}
+
 export const ValidationCSV=(
     csv:Array<CsvFileProps>,
     setErrorRows:(value: (((prevState: (Set<number> | undefined)) => (Set<number> | undefined)) | Set<number> | undefined)) => void,
     setHeaderValid:(value: (((prevState: boolean) => boolean) | boolean)) => void
 )=>{
+
+
+
 
     const keys=Object.keys(csv[0])
     console.log(csv)
@@ -19,11 +26,15 @@ export const ValidationCSV=(
                     errorRows.add(_index);
                 }
             })
+            let courseCompletion=Number(row.courseCompletion);
+            let courseEngagement=Number(row.courseEngagement);
+            let projectDegree=Number(row.projectDegree);
+            let teamProjectDegree=Number(row.teamProjectDegree);
             if(
-                isNaN(Number(row.courseCompletion))||
-                isNaN(Number(row.courseEngagement))||
-                isNaN(Number(row.projectDegree))||
-                isNaN(Number(row.teamProjectDegree))
+                checkValue(courseCompletion)||
+                checkValue(courseEngagement)||
+                checkValue(projectDegree)||
+                checkValue(teamProjectDegree)
                 ){
                 errorRows.add(_index);
             }
