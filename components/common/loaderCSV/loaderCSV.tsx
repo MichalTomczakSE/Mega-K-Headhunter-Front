@@ -67,9 +67,9 @@ export const LoaderCSV=()=> {
         <div>
 
             <div className={"flex flex-row overflow-x-hidden w-auto"}>
-            <form className={"w-1/3"}>
+            <form>
                 <span>Przeciągnij plik lub wybierz go przez kliknięcie</span>
-                <div className={"h-44 min-w-44 border-2 border-primary-red"}>
+                <div className={"h-44 w-44 border-2 border-primary-red"}>
                 <input
                     className={"opacity-0 h-full w-full "}
                     type={"file"}

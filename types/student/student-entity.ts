@@ -28,6 +28,12 @@ export interface StudentEntity {
   courses: string | null;
   isActive: boolean;
   status: StudentStatus;
+  grades: {
+    courseCompletion: number,
+    courseEngagement: number,
+    projectDegree: number,
+    teamProjectDegree: number,
+  },
 };
 
 export interface OneStudentResponse {
