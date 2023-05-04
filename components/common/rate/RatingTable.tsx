@@ -92,8 +92,12 @@ export const RatingForUser = ({
                               }: Rating)  => {
   return (
     <>
+        <div className={"h-14 p-5 w-full flex justify-start text-lg text-light-primary-text items-center bg-secondary-background"}>
+            <span className={"font-semibold"}>Oceny</span>
+        </div>
       <div
         className='sm:grid sm:grid-cols-4 sm:text-center xl:text-left bg-grades-background'>
+
         <RateElementWithNumber title='Ocena przejścia kursu'>
           {courseCompletion}
         </RateElementWithNumber>
@@ -107,6 +111,9 @@ export const RatingForUser = ({
           {teamProjectDegree}
         </RateElementWithNumber>
       </div>
+        <div className={"h-14 p-5 flex justify-start text-lg text-light-primary-text items-center bg-secondary-background"}>
+            <span className={"font-semibold"}>Oczekiwanie w stosunku do zatrudnienia</span>
+        </div>
       <div
         className='sm:grid xl:flex sm:grid-cols-2 sm:text-center xl:text-left bg-grades-background'>
         <RateElementWithText title='Preferowane miejsce pracy'>
