@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {UserDetailsInterface} from "@/interfaces/user/userInterfaces";
+import {Button} from "@/components/common/Button";
 
 interface UserProps{
     data: UserDetailsInterface
@@ -39,9 +40,9 @@ export const UserDetails=({data}:UserProps)=>{
                      <span className={"text-filter-button font-semibold"}>O mnie</span>
                      <span className={"content-center text-light-primary-text h-44 font-normal text-sm overflow-y-scroll no-scrollbar"}>{bio}</span>
                  </div>
-                 <div className={"flex flex-col justify-center "}>
-                     <button>dads</button>
-                     <button>dads</button>
+                 <div className={"flex flex-col justify-center space-y-3 "}>
+                    <Button >Brak Zainteresowania</Button>
+                     <Button >Zatrudniony</Button>
                  </div>
              </div>
          </div>

@@ -9,12 +9,33 @@ interface DetailsInterface{
 
 }
 
+interface Iheder{
+    [p: string]: string | string[]
+    education: string,
+    courses:string,
+    workExperience:string,
+
+    portfolioUrls:string,
+    projectUrls:string,
+    bonusProjectUrls:string,
+}
+
+const headers:Iheder={
+    education: "Edukacja",
+    courses:"Kursy",
+    workExperience:"Doświadczenie zawodowe",
+
+    portfolioUrls:"Portfolio",
+    projectUrls:"Projekt",
+    bonusProjectUrls:"Projekt bonusowy",
+}
+
 export const InfoLayout=({name,description,elements}:DetailsInterface)=>{
 
     return (
         <div className={"flex w-full flex-col"}>
             <div className={"h-14 p-5 flex justify-start text-lg text-light-primary-text items-center bg-secondary-background"}>
-                <span className={"font-semibold"}>{name}</span>
+                <span className={"font-semibold"}>{headers[name]}</span>
             </div>
             {description&&
                 <div className={"h-fit p-5 flex justify-start text-light-primary-text text-sm items-center "}>
