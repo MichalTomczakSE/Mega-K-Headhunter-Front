@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import logo from'../public/images/logo.png'
+import {useCookies} from "react-cookie";
+import {useState} from "react";
 
 interface FormValues{
   email:string;
@@ -17,7 +19,26 @@ const LoginPage = () => {
       password: "",
     },
   });
-  const formHandler = (formValues:FormValues) => {
+  const [message,setMessage]=useState<string>("")
+  const [cookie,setCookie]=useCookies(['access-token'])
+  const formHandler = async(formValues:FormValues) => {
+    const resp=await fetch('http://localhost:3001/auth/login',{
+      body:JSON.stringify(formValues),
+      headers:{
+        "Content-Type": "application/json",
+      },
+      method:'POST'
+    })
+    const data:{status?:number,message?:string,access_token:string}=await resp.json()
+    console.log("dd")
+    if(data.access_token){
+      console.log(data.access_token)
+      setCookie('access-token',data.access_token,{ path: '/' })
+      console.log(cookie)
+    }
+    else{
+      setMessage("Nie znaleziono użytkownika")
+    }
   };
   return (
     <>
@@ -31,6 +52,7 @@ const LoginPage = () => {
                 className={"object-fill w-36 "}
               />
             </div>
+            <div>{message&&<p>{message}</p>}</div>
             <form
               onSubmit={handleSubmit((formValues) => formHandler(formValues))}
               className="space-y-4"
