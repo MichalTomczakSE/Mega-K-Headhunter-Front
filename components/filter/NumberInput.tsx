@@ -4,9 +4,10 @@ interface InputFormProps {
   filterTitle: string;
   onInputChange: (inputValues: { min: string; max: string }) => void;
   onReset: boolean;
+  type: 'salary' | 'grade';
 }
 
-export const SalaryInput = ({ onInputChange, filterTitle, onReset }: InputFormProps) => {
+export const NumberInput = ({ onInputChange, filterTitle, onReset, type }: InputFormProps) => {
   const [inputValues, setInputValues] = useState({ min: '', max: '' });
 
   useEffect(() => {
@@ -25,16 +26,19 @@ export const SalaryInput = ({ onInputChange, filterTitle, onReset }: InputFormPr
   };
 
   return (
+
+
     <>
       <p
         className='text-sm'>
         {filterTitle}
       </p>
+      {type ==='salary' ?
       <div
         className='flex mb-3'>
         <div className='flex flex-col w-3/4 sm:flex-row mr-2 my-2'>
           <div
-          className="flex items-center">
+            className='flex items-center'>
             <label
               className='mr-3'>
               Od
@@ -49,7 +53,7 @@ export const SalaryInput = ({ onInputChange, filterTitle, onReset }: InputFormPr
             />
           </div>
           <div
-            className="flex items-center">
+            className='flex items-center'>
             <label
               className='mr-3'>
               Do
@@ -65,7 +69,23 @@ export const SalaryInput = ({ onInputChange, filterTitle, onReset }: InputFormPr
           </div>
         </div>
       </div>
+        :
+        <div
+          className='mb-3'>
+          <div
+            className='items-center my-2'>
+            <input
+              type='number'
+              required
+              min={0}
+              max={5}
+              onChange={(event) => handleInputChange(event, 'min')}
+              className='mr-2 mb-2 sm:mb-0 px-3 py-2 text-xs bg-secondary-background w-3/4 md:2/3'
+              placeholder='Podaj ocenę 1-5'
+            />
+          </div>
+        </div>
+      }
     </>
-
   );
 };
