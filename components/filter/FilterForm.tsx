@@ -14,32 +14,37 @@ type StudentPreferencesForm = Omit<OneStudentResponse, 'id' | 'githubUsername' |
 type StudentFilterForm = StudentDegreeForm & StudentPreferencesForm;
 type StudentPreferencesKeys = keyof StudentPreferencesForm;
 
-const initialGradeState:StudentDegreeForm = {
+const initialGradeState: StudentDegreeForm = {
   courseCompletion: 0,
   courseEngagement: 0,
   projectDegree: 0,
   teamProjectDegree: 0,
-}
+};
 
-const initialPreferencesState:StudentPreferencesForm = {
+const initialPreferencesState: StudentPreferencesForm = {
   expectedTypeWork: null,
   expectedSalary: null,
   canTakeApprenticeship: null,
   workExperience: 0,
   expectedContract: [],
+};
+
+interface FilterFormProps {
+  modalStatus: boolean,
+  callback: (arg: false) => void                ,
 }
 
-export const FilterForm = () => {
+export const FilterForm = ({ modalStatus, callback }: FilterFormProps) => {
 
-  const [showModal, setShowModal] = useState<boolean>(false);
   const [resetButton, setResetButton] = useState(false);
   const [selectedGrades, setSelectedGrades] = useState<StudentDegreeForm>(initialGradeState);
   const [selectedPreferences, setSelectedPreferences] = useState<StudentPreferencesForm>(initialPreferencesState);
 
+  const handleCallback = () => callback(false);
   const handleClearButtonClick = () => {
     setResetButton(true);
-    setSelectedGrades(initialGradeState)
-    setSelectedPreferences(initialPreferencesState)
+    setSelectedGrades(initialGradeState);
+    setSelectedPreferences(initialPreferencesState);
   };
 
   const handleGradeSelected = useCallback((buttonKey: keyof StudentDegreeForm, value: number) => {
@@ -60,19 +65,19 @@ export const FilterForm = () => {
 
   // @TODO POST this to backend!
   const handleSendForm = (): StudentFilterForm => {
-    const data =  ({
+    const data = ({
       ...selectedGrades,
       ...selectedPreferences,
     });
-    cancelAndResetForm()
+    cancelAndResetForm();
     return data;
   };
 
   const cancelAndResetForm = () => {
-    setShowModal(false);
+    handleCallback();
     setSelectedGrades(initialGradeState);
     setSelectedPreferences(initialPreferencesState);
-  }
+  };
 
   const handleExperienceChange = useCallback((value: number) => {
     handlePreferencesSelected('workExperience', value);
@@ -81,34 +86,17 @@ export const FilterForm = () => {
 
   return (
     <>
-      <Button
-        color='bg-navbar-background'
-        onClick={() =>
-          setShowModal(true)
-        }>
-        <svg
-          className='inline mr-1 mb-1'
-          xmlns='http://www.w3.org/2000/svg'
-          width='12'
-          height='12'
-          viewBox='0 0 512 512'>
-          <path d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0
-           12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z'
-                fill='#4d4d4d' />
-        </svg>
-        Filtrowanie
-      </Button>
       <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}>
+        isOpen={modalStatus}
+        onClose={() => handleCallback()}>
         <div>
           <div
             className='flex items-center justify-between my-5'>
             <h2
-            className="text-[22px] font-bold">
+              className='text-[22px] font-bold'>
               Filtrowanie
             </h2
->
+            >
             <Button
               onClick={handleClearButtonClick}
               color='bg-clear-button'>
