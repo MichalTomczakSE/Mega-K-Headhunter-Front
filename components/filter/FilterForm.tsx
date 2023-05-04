@@ -1,9 +1,8 @@
 import { useCallback, useState } from 'react';
 import { Button } from '@/components/common/Button';
 import { Modal } from '@/components/modal/Modal';
-import { GradeButton } from '@/components/filter/GradeButton';
 import { SelectButton } from '@/components/filter/SelectButton';
-import { SalaryInput } from '@/components/filter/SalaryInput';
+import {  NumberInput } from '@/components/filter/NumberInput';
 import { RadioForm } from '@/components/filter/RadioForm';
 import { ExperienceInput } from '@/components/filter/ExperienceInput';
 import { OneStudentResponse } from '@/types';
@@ -31,7 +30,7 @@ const initialPreferencesState: StudentPreferencesForm = {
 
 interface FilterFormProps {
   modalStatus: boolean,
-  callback: (arg: false) => void                ,
+  callback: (arg: false) => void,
 }
 
 export const FilterForm = ({ modalStatus, callback }: FilterFormProps) => {
@@ -103,26 +102,26 @@ export const FilterForm = ({ modalStatus, callback }: FilterFormProps) => {
               Wyczyść wszystkie
             </Button>
           </div>
-          <GradeButton
+          <NumberInput
+            type='grade'
             onReset={resetButton}
             filterTitle='Ocena przejścia kursu'
-            onGradeSelected={(value) => handleGradeSelected('courseCompletion', value)}
-            grade={5} />
-          <GradeButton
+            onInputChange={(value) => handlePreferencesSelected('expectedSalary', [parseInt(value.min), parseInt(value.max)])} />
+          <NumberInput
+            type='grade'
             onReset={resetButton}
             filterTitle='Ocena aktywności i zaangażowania na kursie'
-            onGradeSelected={(value) => handleGradeSelected('courseEngagement', value)}
-            grade={5} />
-          <GradeButton
+            onInputChange={(value) => handlePreferencesSelected('expectedSalary', [parseInt(value.min), parseInt(value.max)])} />
+          <NumberInput
+            type='grade'
             onReset={resetButton}
             filterTitle='Ocena kodu w projekcie własnym'
-            onGradeSelected={(value) => handleGradeSelected('projectDegree', value)}
-            grade={5} />
-          <GradeButton
+            onInputChange={(value) => handlePreferencesSelected('expectedSalary', [parseInt(value.min), parseInt(value.max)])} />
+          <NumberInput
+            type='grade'
             onReset={resetButton}
             filterTitle='Ocena pracy w zespole Scrum'
-            onGradeSelected={(value) => handleGradeSelected('teamProjectDegree', value)}
-            grade={5} />
+            onInputChange={(value) => handlePreferencesSelected('expectedSalary', [parseInt(value.min), parseInt(value.max)])} />
           <SelectButton
             onReset={resetButton}
             multipleChoice={false}
@@ -135,7 +134,8 @@ export const FilterForm = ({ modalStatus, callback }: FilterFormProps) => {
             onSelectClick={(value) => handlePreferencesSelected('expectedContract', value)}
             filterTitle='Oczekiwany typ kontraktu'
             buttons={['Umowa o pracę', 'B2B', 'Umowa zlecenie', 'Umowa o dzieło']} />
-          <SalaryInput
+          <NumberInput
+            type='salary'
             onReset={resetButton}
             filterTitle='Oczekiwane wynagrodzenie miesięczne netto'
             onInputChange={(value) => handlePreferencesSelected('expectedSalary', [parseInt(value.min), parseInt(value.max)])} />
