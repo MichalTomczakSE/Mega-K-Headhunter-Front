@@ -39,7 +39,7 @@ interface Grades {
   courseEngagement: GradingScale;
   projectDegree: GradingScale;
   teamProjectDegree: GradingScale;
-  status: StudentStatus;
+  status?: StudentStatus;
 };
 
 
