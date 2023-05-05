@@ -6,14 +6,16 @@ interface ButtonProps {
   color?: string,
   onClick?: () => void,
   className?: string,
+  disabled?:boolean,
 }
 
-export const Button = ({ children, type, color, onClick, className }: ButtonProps) => {
+export const Button = ({ children, type, color, onClick, className,disabled }: ButtonProps) => {
   return (
     <button
       type={type ? type : 'button'}
-      className={`${color ? color : 'bg-primary-red'} ${className} text-light-primary-text py-2 px-4`}
+      className={`${color ? color : disabled ? "bg-secondary-background": 'bg-primary-red'} ${className} text-light-primary-text py-2 px-4`}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

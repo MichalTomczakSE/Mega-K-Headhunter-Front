@@ -1,4 +1,12 @@
+
 import { GradingScale } from '@/types';
+import { StudentDegreesEntity } from "./student-degrees-entity";
+
+export enum StudentStatus {
+  available = 1,
+  awaiting = 2,
+  hired = 3,
+}
 
 export interface StudentEntity {
   id: string;
@@ -31,4 +39,20 @@ interface Grades {
   courseEngagement: GradingScale;
   projectDegree: GradingScale;
   teamProjectDegree: GradingScale;
+  status: StudentStatus;
+};
+
+
+export interface OneStudentResponse {
+  id: string,
+  githubUsername: string,
+  firstName: string,
+  lastName: string,
+  expectedTypeWork: number | null,
+  expectedContract: number[],
+  targetWorkCity: string | null,
+  expectedSalary: number | null,
+  canTakeApprenticeship: boolean | null,
+  workExperience: number | null,
+  degrees: Omit<StudentDegreesEntity, "id" | "activationToken">
 }

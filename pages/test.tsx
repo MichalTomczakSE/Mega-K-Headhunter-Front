@@ -1,16 +1,23 @@
-import {Header} from "@/components/common/Header";
-import { StudentList } from '@/components/common/student/StudentList';
-const TestPage = ()=>  {
+import { useState } from 'react';
+import { Header } from '@/components/common/Header';
+import { FilterForm } from '@/components/filter/FilterForm';
+import { Button } from '@/components/common/Button';
+
+export default function TestPage() {
+  const [showModal, setShowModal] = useState(false);
+  const callback = (payload: boolean) => {
+    setShowModal(payload);
+  };
   return (
     <>
-      <Header/>
-      <section className="bg-primary-background h-[100vh]">
-        <StudentList status={1}/>
-        <hr/>
-        <StudentList status={2}/>
+      <Header />
+      <Button
+        onClick={() => setShowModal(true)}>
+        Run Filter Form, Run!
+      </Button>
+      <section className='bg-primary-background h-[100vh]'>
+        <FilterForm modalStatus={showModal} callback={callback}/>
       </section>
     </>
-  )
+  );
 }
-
-export default TestPage
