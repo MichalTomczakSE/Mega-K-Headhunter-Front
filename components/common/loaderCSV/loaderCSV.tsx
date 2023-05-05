@@ -1,16 +1,27 @@
 import {ChangeEvent, useEffect, useState} from "react";
 import {ValidationCSV} from "@/components/common/loaderCSV/validationCSV";
 import {Button} from "@/components/common/Button";
-import {CsvFileProps} from "@/components/common/loaderCSV/interfaces/csv";
+import {CsvFileProps, headerName} from "@/components/common/loaderCSV/interfaces/csv";
 
-
+const headersName:headerName={
+    email:"Email",
+    courseCompletion:"Ocena przejścia kursu",
+    courseEngagement:"Ocena aktywności",
+    projectDegree:"Ocena z projektu",
+    teamProjectDegree:"Ocena z projektu grupowego",
+    bonusProjectUrls:"Url projektu",
+    fullName:"Imię i nazwisko",
+    company:"Firma"
+}
 
 
 export const LoaderCSV=()=> {
     const [file, setFile] = useState<File>();
     const [array, setArray] = useState<Array<CsvFileProps>>([]);
+    const [headers,setHeaders]=useState<Array<string>>([]);
     const [errorRows,setErrorRows]=useState<Set<number>>()
     const [headerValid,setHeaderValid]=useState<boolean>(true)
+    const [dataType,setDataType]=useState<string>("")
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         if(!e.target.files) return;
@@ -22,8 +33,8 @@ export const LoaderCSV=()=> {
 
     const submitCsv=()=>{
 
-        //useFetch...
-        if(errorRows?.size==0) {
+        if(errorRows?.size==0&&dataType!=="") {
+            console.log(array)
             setArray([]);
             setErrorRows(new Set());
             setHeaderValid(true);
@@ -45,6 +56,7 @@ export const LoaderCSV=()=> {
                 const unformedData= text.replaceAll('"','')
                 const data=unformedData.split('\r\n')
                 const header=data[0].split(';');
+                setHeaders(header);
                 data.splice(0, 1);
                 data.splice(-1, 1);
                 const rows=data.map(row=>row.split(';'))
@@ -56,7 +68,8 @@ export const LoaderCSV=()=> {
                         return object;
                     }, {} as CsvFileProps);
                 })
-                ValidationCSV(arr,setErrorRows,setHeaderValid);
+                console.log(arr)
+                ValidationCSV(arr,setErrorRows,setHeaderValid,setDataType);
                 setArray(arr as Array<CsvFileProps>);
             };
 
@@ -112,54 +125,31 @@ export const LoaderCSV=()=> {
                     <thead className={`text-xs text-light-primary-text ${headerValid?"bg-primary-background":"bg-primary-red"}`}>
                     <tr>
                         <th scope="col" className=" py-3">
-                            Indeks
+                            Lp.
                         </th>
-                        <th scope="col" className="py-3">
-                            Email
-                        </th>
-                        <th scope="col" className=" py-3">
-                            Ocena przejścia kursu
-                        </th>
-                        <th scope="col" className=" py-3">
-                            Ocena aktywności
-                        </th>
-                        <th scope="col" className=" py-3">
-                            Ocena kodu
-                        </th>
-                        <th scope="col" className=" py-3">
-                            Ocena pracy w Scrum
-                        </th>
-                        <th scope="col" className=" py-3">
-                            Url projektu
-                        </th>
+                        {headerValid&&
+                            headers.map((x:string,index)=>
+                                <th key={index} scope="col" className=" py-3">
+                                    {headersName[x]}
+                                </th>)
+                    }
                     </tr>
                     </thead>
                     <tbody>
-                    {headerValid&& array.map((row,index)=>
-                        <tr className={`border-b ${errorRows?.has(index)?"bg-primary-red":""}`} key={index} >
+                    {headerValid&& array.map((row:CsvFileProps,index)=>
+                        <tr key={index} className={`border-b ${errorRows?.has(index)?"bg-primary-red":""}`} >
                             <td scope="row"
                                 className={` py-4`}>
                                 {index+1}
                             </td>
-                        <th scope="row"
-                            className={`px-2 py-4 font-medium text-light-primary-text whitespace-nowrap`}>
-                            {row.email}
-                        </th>
-                        <td className=" py-4">
-                            {row.courseCompletion}
-                        </td>
-                        <td className=" py-4">
-                            {row.courseEngagement}
-                        </td>
-                        <td className="py-4">
-                            {row.projectDegree}
-                        </td>
-                        <td className=" py-4">
-                            {row.teamProjectDegree}
-                        </td>
-                        <td className="px-2 py-4">
-                            {row.bonusProjectUrls}
-                        </td>
+
+
+                            {headers.map((x,_index)=>
+                                <td className=" py-4" key={index}>
+                                    {row[x]}
+                                </td>
+                            )}
+
                     </tr>)}
 
 
