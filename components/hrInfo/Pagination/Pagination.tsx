@@ -30,7 +30,7 @@ export const Pagination = ({
   };
 
   return (
-    <div className="my-6 bg-primary-background shadow-md">
+    <div className="my-6 min-w-min bg-primary-background shadow-md">
       {/*Here should be component with list of students and props studentsToDisplay*/}
       <div className="flex items-center justify-end gap-2 px-6 py-4 text-light-primary-text">
         <p className="mr-2">Ilość elementów</p>
@@ -48,7 +48,7 @@ export const Pagination = ({
         </div>
 
         <div className=" flex items-center justify-end">
-          <span className="mr-2 text-base text-light-primary-text">Strona</span>
+          <span className="text-base text-light-primary-text">Strona</span>
           <span className="mx-1 font-medium text-light-primary-text">
             {page + 1}
           </span>
@@ -67,8 +67,8 @@ export const Pagination = ({
           nextLabel="&gt;"
           breakLabel="..."
           onPageChange={handlePageChange}
-          containerClassName="px-6 py-4 flex items-center justify-end gap-2"
-          pageClassName="bg-dark-secondary-text text-pagination-item py-1.5 px-3 focus:outline-none"
+          containerClassName="px-6 py-4 flex items-center justify-end gap-1.5"
+          pageClassName="bg-dark-secondary-text text-pagination-item py-1.5 px-1 focus:outline-none"
           activeLinkClassName="bg-primary-background text-light-primary-text"
           disabledClassName="bg-light-secondary-text cursor-not-allowed py-1.5 px-3 focus:outline-none"
         />
