@@ -1,7 +1,7 @@
-import {ReactNode} from "react";
+import { ReactNode } from 'react';
 
 interface ButtonProps {
-children: ReactNode,
+  children: ReactNode,
   type?:"submit" | "reset",
   color?:string,
   onClick?:() => void,
