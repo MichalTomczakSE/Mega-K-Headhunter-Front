@@ -3,9 +3,10 @@ import { ReactNode } from 'react';
 
 interface AccountDashboardProps {
   children: ReactNode;
+  isAdmin: boolean;
 }
 
-export const AccountDashboard = ({ children }: AccountDashboardProps) => {
+export const AccountDashboard = ({ children, isAdmin }: AccountDashboardProps) => {
   return (
     <div
       className='
@@ -16,7 +17,7 @@ export const AccountDashboard = ({ children }: AccountDashboardProps) => {
         className='flex justify-center border
          md:justify-start md:px-3
          text-sm md:text-md'>
-        <SidebarMenu isAdmin={true} />
+        <SidebarMenu isAdmin={isAdmin} />
       </div>
       <div
         className='border col-span-2 text-sm md:text-lg'>
