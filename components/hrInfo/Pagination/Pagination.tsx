@@ -19,8 +19,8 @@ export const Pagination = ({
 }: PaginationProps) => {
   total = Math.ceil(10);
 
-  const handlePageChange = ({ selected }: { selected: number }) => {
-    setPage(selected);
+  const handlePageChange = (newPage: number ) => {
+    setPage(newPage);
   };
 
   const handlePerPageChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
@@ -48,7 +48,7 @@ export const Pagination = ({
         </div>
 
         <div className=" flex items-center justify-end">
-          <span className="text-base text-light-primary-text">Strona</span>
+          {/*<span className="text-base text-light-primary-text"></span>*/}
           <span className="mx-1 font-medium text-light-primary-text">
             {page + 1}
           </span>
@@ -58,20 +58,26 @@ export const Pagination = ({
             {Math.ceil(total)} {/* should be data from BE*/}
           </span>
         </div>
-        <ReactPaginate
-          // pageCount={Math.ceil(studentsCount / perPage)}
-          pageCount={Math.ceil(total)} // should be data from BE
-          pageRangeDisplayed={2}
-          marginPagesDisplayed={1}
-          previousLabel="&lt;"
-          nextLabel="&gt;"
-          breakLabel="..."
-          onPageChange={handlePageChange}
-          containerClassName="px-6 py-4 flex items-center justify-end gap-1.5"
-          pageClassName="bg-dark-secondary-text text-pagination-item py-1.5 px-1 focus:outline-none"
-          activeLinkClassName="bg-primary-background text-light-primary-text"
-          disabledClassName="bg-light-secondary-text cursor-not-allowed py-1.5 px-3 focus:outline-none"
-        />
+        <div className="px-6 py-4 flex items-center justify-end gap-3">
+        <button
+          onClick={() => handlePageChange(page - 1)}
+          disabled={page === 0}
+          className={`${
+            page === 0 ? 'bg-light-secondary-text cursor-not-allowed ' : 'bg-dark-secondary-text text-pagination-item '
+          } py-1.5 px-3  focus:outline-none`}
+        >
+          &lt;
+        </button>
+        <button
+          onClick={() => handlePageChange(page + 1)}
+          disabled={page === total - 1}
+          className={`${
+            page === total - 1 ? 'bg-light-secondary-text cursor-not-allowed ' : 'bg-dark-secondary-text text-pagination-item '
+          } py-1.5 px-3 focus:outline-none`}
+        >
+          &gt;
+        </button>
+        </div>
       </div>
     </div>
   );
