@@ -27,14 +27,15 @@ const ToTalkStudents = () => {
         console.log(error);
       }
     };
-    getData();
+   getData();
   }, [currentPage, perPage, search]);
 
   return (
-    <Container>
-      <div className="w-full px-2 pb-5">
+    <>
+      <div className="w-full px-2">
         <Header />
       </div>
+    <Container>
       <div className="  mb-1 flex h-[72px] w-9/12 items-center bg-secondary-background px-2">
         <LinkComponent />
       </div>
@@ -52,6 +53,7 @@ const ToTalkStudents = () => {
         />
       </div>
     </Container>
+    </>
   );
 };
 

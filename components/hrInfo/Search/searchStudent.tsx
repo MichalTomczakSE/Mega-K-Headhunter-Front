@@ -12,11 +12,11 @@ export const SearchStudent = ({ setSearch }: SearchProps) => {
 
   return (
     <form className="relative flex w-full items-center">
-      <SlMagnifier className="absolute " />
+      <SlMagnifier className="absolute left-2 " />
       <input
         type="text"
-        className=" w-25/100 bg-navbar-background pl-6"
-        placeholder="szukaj"
+        className="w-25/100 bg-navbar-background pl-10"
+        placeholder="Szukaj"
         onChange={handleSearchChange}
       />
     </form>
