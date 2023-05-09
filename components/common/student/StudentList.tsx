@@ -67,16 +67,16 @@ const StudentListElement = ({ status }: StudentListProps) => {
                   ) :
                   <div className='items-center text-xs  md:scale-100 lg:text-sm grid grid-cols-1 md:flex'>
                     <Button
-                      className='mx-0.5 sm:mx-3 my-2'>
+                      variant='mx-0.5 sm:mx-3 my-2'>
                       <Link href={`/student/${student.id}`}>Pokaż CV</Link>
                     </Button>
                     <Button
-                      className='mx-0.5 sm:mx-3 my-2'
+                      variant='mx-0.5 sm:mx-3 my-2'
                       onClick={() => console.log('zmien status na dostepny')}>
                       Brak zainteresowania
                     </Button>
                     <Button
-                      className='mx-0.5 sm:mx-3 my-2'
+                        variant='mx-0.5 sm:mx-3 my-2'
                       onClick={() => console.log('zmien status na dostepny')}>
 
                       Zatrudniony
