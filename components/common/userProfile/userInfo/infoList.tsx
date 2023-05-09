@@ -9,7 +9,7 @@ export const InfoList=({data}:PropsInterface)=>{
     const keys:string[]=Object.keys(data);
     return (
         <div>
-            {keys.map(value=><InfoLayout key={uuid.toString()} name={value} description={data[value]} />)}
+            {keys.map((value,index)=><InfoLayout key={index} name={value} description={data[value]} />)}
         </div>
     )
 }

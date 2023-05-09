@@ -26,7 +26,7 @@ export const InfoLayout=({name,description,elements}:DetailsInterface)=>{
             {
                 elements&&
                 <div>
-                    {elements.map(element=><div key={uuid.toString()}>{element}</div>)}
+                    {elements.map((element,index)=><div key={index}>{element}</div>)}
                 </div>
             }
         </div>
