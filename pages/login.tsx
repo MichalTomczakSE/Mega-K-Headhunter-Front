@@ -6,21 +6,26 @@ import { Button } from "@/components/common/Button";
 import logo from'../public/images/logo.png'
 import {useCookies} from "react-cookie";
 import {useState} from "react";
+import {useRouter} from "next/router";
+
 
 interface FormValues{
-  email:string;
+  username:string;
   password:string;
 }
 
 const LoginPage = () => {
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
   const [message,setMessage]=useState<string>("")
-  const [cookie,setCookie]=useCookies(['access-token'])
+  const [cookie,setCookie]=useCookies(['userInfo'])
+  const { push } = useRouter();
+
+
   const formHandler = async(formValues:FormValues) => {
     const resp=await fetch('http://localhost:3001/auth/login',{
       body:JSON.stringify(formValues),
@@ -29,12 +34,12 @@ const LoginPage = () => {
       },
       method:'POST'
     })
-    const data:{status?:number,message?:string,access_token:string}=await resp.json()
-    console.log("dd")
-    if(data.access_token){
-      console.log(data.access_token)
-      setCookie('access-token',data.access_token,{ path: '/' })
-      console.log(cookie)
+
+    const data:{email?:string,id?:string,role?:number,token?:{access_token:string}}=await resp.json()
+    if(data.token){
+      const{email,id,role}=data
+      setCookie('userInfo',{token:data.token.access_token,email,id,role},{ path: '/' })
+      await push('/')
     }
     else{
       setMessage("Nie znaleziono użytkownika")
@@ -60,7 +65,7 @@ const LoginPage = () => {
               <div>
                 <Input
                   placeholder="E-mail"
-                  register={register("email", { required: true })}
+                  register={register("username", { required: true })}
                 />
               </div>
               <div>
