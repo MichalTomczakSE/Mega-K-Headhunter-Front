@@ -1,19 +1,26 @@
 import {InfoList} from "./infoList";
 import {UserInfoInterface} from "@/interfaces/user/userInterfaces";
-import {useState} from "react";
+import {Dispatch, SetStateAction, useState} from "react";
+import {StudentEntity} from "@/interfaces/student/student";
+import {Button} from "@/components/common/Button";
 
-interface PropsInterface {
-    data: UserInfoInterface
+interface UserProps{
+    data: StudentEntity,
+    edit:boolean,
+    setEdit: Dispatch<SetStateAction<boolean>>,
+    setData: Dispatch<SetStateAction<StudentEntity>>,
+    send:()=>void
 }
 
-export const UserInfo=({data}:PropsInterface)=>{
+export const UserInfo=({send,setData,setEdit,edit,data}:UserProps)=>{
 
-    const [info,setInfo]=useState<UserInfoInterface>(data)
-    const [edit,setEdit]=useState<boolean>(true);
+
+
 
 return (
     <>
-        <InfoList edit={edit} setEdit={setEdit} setInfo={setInfo} data={info}/>
+        <InfoList edit={edit} setEdit={setEdit} setData={setData} data={data}/>
+        <Button onClick={()=>send()}>Zatwierdź zmiany</Button>
     </>
 )
 }

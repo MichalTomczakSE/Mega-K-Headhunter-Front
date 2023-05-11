@@ -1,48 +1,41 @@
 import Image from "next/image";
 import {UserDetailsInterface, UserInfoInterface} from "@/interfaces/user/userInterfaces";
 import {Button} from "@/components/common/Button";
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
+import {StudentEntity} from "@/interfaces/student/student";
 
 interface UserProps{
-    data: UserDetailsInterface
+    data: StudentEntity,
+    edit:boolean,
+    setEdit: Dispatch<SetStateAction<boolean>>,
+    setData: Dispatch<SetStateAction<StudentEntity>>,
 }
 
 
-export const UserDetails=({data}:UserProps)=>{
+export const UserDetails=({setData,setEdit,edit,data}:UserProps)=>{
 
-    const [info,setInfo]=useState<UserDetailsInterface>({
-        firstName: "",
-        lastName: "",
-        githubUsername: "",
-        phoneNumber: "",
-        email: "",
-        bio:""})
 
-    useEffect(()=>{
-        setInfo(data)
-    },[data])
 
+    console.log(data);
     const { register,handleSubmit } = useForm<UserDetailsInterface>({
         defaultValues: {
-            phoneNumber:data.phoneNumber,
-            bio:data.bio,
+            phoneNumber:data.phoneNumber?data.phoneNumber:"",
+            bio:data.bio?data.bio:"",
             firstName:data.firstName,
             lastName:data.lastName,
+            email:data.email,
+            githubUsername:data.githubUsername,
         },
     });
 
     const formHandler = (formValues:UserDetailsInterface) => {
-        console.log(formValues)
-        const {bio,phoneNumber,firstName,lastName}=formValues;
-        setInfo({...data,phoneNumber,firstName,lastName,bio})
+        const {phoneNumber,bio,firstName,lastName}=formValues
         setEdit(prevState => !prevState)
-        console.log(data)
+        setData(prevState => ({...prevState, phoneNumber,bio,firstName,lastName}))
+
     };
 
-
-
-    const [edit,setEdit]=useState<boolean>(true);
  return(
      <div className={'flex flex-col'}>
          <form onSubmit={handleSubmit((formValues) => formHandler(formValues))}>
@@ -53,10 +46,10 @@ export const UserDetails=({data}:UserProps)=>{
              <div className="space-y-4 text-center">
                  <div className="my-2 space-y-1">
                      <h2 className="text-xl font-semibold sm:text-2xl">
-                         {edit?<span>{info.firstName}</span>:
+                         {edit?<span>{data.firstName}</span>:
                              <input {...register("firstName", { required: true })} type={'text'} className={"border-2 border-secondary-background bg-primary-background w-full"}/>
                          } {" "}
-                         {edit?<span>{info.lastName}</span>:
+                         {edit?<span>{data.lastName}</span>:
                              <input {...register("lastName", { required: true })} type={'text'} className={"border-2 border-secondary-background bg-primary-background w-full"}/>
                          }
                      </h2>
@@ -72,8 +65,8 @@ export const UserDetails=({data}:UserProps)=>{
                          <svg width="16" height="16" className={"fill-filter-button"}>
                              <path fill="#444" d="M12.2 10c-1.1-.1-1.7 1.4-2.5 1.8C8.4 12.5 6 10 6 10S3.5 7.6 4.1 6.3c.5-.8 2-1.4 1.9-2.5-.1-1-2.3-4.6-3.4-3.6C.2 2.4 0 3.3 0 5.1c-.1 3.1 3.9 7 3.9 7 .4.4 3.9 4 7 3.9 1.8 0 2.7-.2 4.9-2.6 1-1.1-2.5-3.3-3.6-3.4z"></path>
                          </svg>
-                         {edit?<span>{info.phoneNumber}</span>:
-                             <input {...register("phoneNumber", { required: true })} type={'text'} className={"border-2 border-secondary-background bg-primary-background w-full"}/>
+                         {edit?<span>{data.phoneNumber}</span>:
+                             <input type={"text"} {...register("phoneNumber", { required: true,validate: (value, formValues) => !isNaN(Number(value))&&value.length===9 })}  className={"border-2 border-secondary-background bg-primary-background w-full"}/>
                          }
 
                      </div>
@@ -85,7 +78,7 @@ export const UserDetails=({data}:UserProps)=>{
                  <div className={"text-left flex flex-col space-y-2"}>
                      <span className={"text-filter-button font-semibold"}>O mnie</span>
                      {edit?
-                         <span className={"content-center text-light-primary-text h-44 font-normal text-sm overflow-y-scroll no-scrollbar"}>{info.bio}</span>
+                         <span className={"content-center text-light-primary-text h-44 font-normal text-sm overflow-y-scroll no-scrollbar"}>{data.bio}</span>
                          :
                          <textarea className={"content-center bg-primary-background border-2 border-secondary-background text-light-primary-text h-44 font-normal text-sm overflow-y-scroll no-scrollbar"}
                                    {...register("bio", { required: true })} />}
@@ -99,10 +92,11 @@ export const UserDetails=({data}:UserProps)=>{
          </div>
          <div className={'flex flex-row justify-between'}>
              <Button onClick={()=>setEdit(prevState => !prevState)}>{edit?'Edytuj':'Zamknij edycje'}</Button>
-             {!edit&&<Button type={'submit'}>Wyślij</Button>}
+             {!edit&&<Button type={'submit'}>Zapisz</Button>}
          </div>
      </form>
          </div>
 
  )
+
 }

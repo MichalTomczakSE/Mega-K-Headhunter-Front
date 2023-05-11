@@ -1,4 +1,4 @@
-export const testInfo={
+export const Info={
     /*courseCompletion:5,
     courseEngagement:4,
     projectDegree:3,
@@ -19,11 +19,11 @@ export const testInfo={
 
 }
 
-export const testUser={
+export const User={
     firstName:"test",
     lastName:"test",
     githubUsername:"zrodozrodo",
-    phoneNumber:"+48 1321231231",
+    phoneNumber:"481321231231",
     email:"test@test",
     bio:"   adipiscing elit, sed do eiusmod tempor incididunt ut\n" +
         "                         labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
