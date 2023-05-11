@@ -45,7 +45,7 @@ export const InfoList=({setData,setEdit,edit,data}:UserProps)=>{
                     <InfoLayout name={"Doświadczenie zawodowe"} register={register("workExperience", {required: false})}
                                 edit={edit} description={data.workExperience}/>
                     <InfoLinkLayout id={'portfolioUrls'} setData={setData} name={'Portfolio'} edit={edit} description={data.portfolioUrls?data.portfolioUrls:""}/>
-                    <InfoLinkLayout name={'Projekt w zespole Scrumowym'} setData={setData} id={'Portfolio'} edit={edit} description={data.projectUrls?data.projectUrls:""}/>
+                    <InfoLinkLayout name={'Projekt w zespole Scrumowym'} setData={setData} id={'projectUrls'} edit={edit} description={data.projectUrls?data.projectUrls:""}/>
                     <InfoLinkLayout name={'Projekt na zaliczenie'}  description={data.degrees.bonusProjectUrls?data.degrees.bonusProjectUrls:""}/>
                     <div className={'space-x-2 my-4'}>
                         <Button
