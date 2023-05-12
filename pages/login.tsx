@@ -27,7 +27,7 @@ const LoginPage = () => {
 
 
   const formHandler = async(formValues:FormValues) => {
-    const resp=await fetch('http://localhost:3001/auth/login',{
+    const resp=await fetch('http://localhost:3000/auth/login',{
       body:JSON.stringify(formValues),
       headers:{
         "Content-Type": "application/json",

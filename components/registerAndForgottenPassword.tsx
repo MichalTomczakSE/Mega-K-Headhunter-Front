@@ -7,12 +7,12 @@ import logo from'../public/images/logo.png'
 import {useState} from "react";
 
 
-interface Props{
+interface RegisterAndPassProps{
   message:string,
   type:string
 }
 
-export const RegisterAndForgottenPassword = ({message,type}:Props) => {
+export const RegisterAndForgottenPassword = ({message,type}:RegisterAndPassProps) => {
   const { register, handleSubmit } = useForm<{email:string}>({
     defaultValues: {
       email: "",

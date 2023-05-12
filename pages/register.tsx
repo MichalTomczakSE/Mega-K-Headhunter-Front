@@ -2,7 +2,7 @@ import { RegisterAndForgottenPassword } from "@/components/registerAndForgottenP
 
 const RegisterPage = () => {
 
-  return <RegisterAndForgottenPassword message={"Podaj emial w celu rejestracji"} type={"register"} />;
+  return <RegisterAndForgottenPassword message={"Podaj email w celu rejestracji"} type={"register"} />;
 };
 
 export default RegisterPage;
