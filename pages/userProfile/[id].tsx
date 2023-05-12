@@ -2,36 +2,10 @@ import { UserDetails } from "@/components/common/userProfile/userDetails/userDet
 import { UserInfo } from "@/components/common/userProfile/userInfo/userInfo";
 import { Header } from "@/components/common/Header";
 import { GoBack } from "@/components/common/goBack/goBack";
-import { Info, User } from "@/test/testData";
 import { useEffect, useState } from "react";
 import { StudentEntity, StudentStartData } from "@/interfaces/student/student";
-import {Button} from "@/components/common/Button";
 import {useRouter} from "next/router";
-/*
-{
-  id: string;
-  email: string;
-  phoneNumber: string | null;
-  firstName: string;
-  lastName: string;
-  githubUsername: string;
-  portfolioUrls: string | null;
-  projectUrls: string;
-  bio: string | null;
-  expectedTypeWork: number;
-  targetWorkCity: string | null;
-  expectedContractType: number;
-  expectedSalary: number | null;
-  canTakeApprenticeship: boolean;
-  monthsOfCommercialExp: number;
-  education: string | null;
-  workExperience: string | null;
-  courses: string | null;
-  isActive: boolean;
-  status: StudentStatus;
-  user: UserEntity;
-}
-*/
+
 
 const UserProfile = () => {
   const [data, setData] = useState<StudentEntity>(StudentStartData);
@@ -44,7 +18,7 @@ const UserProfile = () => {
   useEffect(() => {
 
       if(router.query.id) {
-          fetch(`http://localhost:3001/student/${router.query.id}`)
+          fetch(`http://localhost:3000/student/${router.query.id}`)
               .then((resp) => resp.json())
               .then((resp) => {
                   console.log(resp)
@@ -59,7 +33,7 @@ const UserProfile = () => {
   }, [router.query.id]);
 
   const send=()=>{
-      console.log("finalna data kurwa zmienina",data)
+      console.log()
   }
 
 
