@@ -1,7 +1,5 @@
 import { LinkComponent } from "./linkComponent";
-import { v4 as uuid } from "uuid";
 import { Dispatch, SetStateAction, useState } from "react";
-import { UserInfoInterface } from "@/interfaces/user/userInterfaces";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { Button } from "@/components/common/Button";
 import { StudentEntity } from "@/interfaces/student/student";

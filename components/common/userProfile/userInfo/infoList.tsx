@@ -1,8 +1,8 @@
 import {InfoLayout} from "./infoLayout";
 import {UserInfoInterface} from "@/interfaces/user/userInterfaces";
-import {Dispatch, SetStateAction, useState} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {Button} from "@/components/common/Button";
-import {useFieldArray, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {StudentEntity} from "@/interfaces/student/student";
 import {InfoLinkLayout} from "@/components/common/userProfile/userInfo/infoLinkLayout";
 interface UserProps{
@@ -32,8 +32,6 @@ export const InfoList=({setData,setEdit,edit,data}:UserProps)=>{
     };
 
     if(data) {
-
-
         return (
             <div>
                 <form onSubmit={handleSubmit((formValues) => formHandler(formValues))}>

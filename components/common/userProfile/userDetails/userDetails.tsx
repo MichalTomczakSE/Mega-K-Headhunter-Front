@@ -1,7 +1,7 @@
 import Image from "next/image";
-import {UserDetailsInterface, UserInfoInterface} from "@/interfaces/user/userInterfaces";
+import {UserDetailsInterface} from "@/interfaces/user/userInterfaces";
 import {Button} from "@/components/common/Button";
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {useForm} from "react-hook-form";
 import {StudentEntity} from "@/interfaces/student/student";
 
@@ -15,9 +15,6 @@ interface UserProps{
 
 export const UserDetails=({setData,setEdit,edit,data}:UserProps)=>{
 
-
-
-    console.log(data);
     const { register,handleSubmit } = useForm<UserDetailsInterface>({
         defaultValues: {
             phoneNumber:data.phoneNumber?data.phoneNumber:"",
@@ -96,7 +93,6 @@ export const UserDetails=({setData,setEdit,edit,data}:UserProps)=>{
          </div>
      </form>
          </div>
-
  )
 
 }

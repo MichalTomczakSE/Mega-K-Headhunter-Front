@@ -30,10 +30,10 @@ const UserProfile = () => {
                   }
               });
       }
-  }, [router.query.id]);
+  }, [router]);
 
   const send=()=>{
-      console.log()
+
   }
 
 

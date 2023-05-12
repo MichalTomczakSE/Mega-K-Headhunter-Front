@@ -1,6 +1,5 @@
 import {InfoList} from "./infoList";
-import {UserInfoInterface} from "@/interfaces/user/userInterfaces";
-import {Dispatch, SetStateAction, useState} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {StudentEntity} from "@/interfaces/student/student";
 import {Button} from "@/components/common/Button";
 
@@ -13,10 +12,6 @@ interface UserProps{
 }
 
 export const UserInfo=({send,setData,setEdit,edit,data}:UserProps)=>{
-
-
-
-
 return (
     <>
         <InfoList edit={edit} setEdit={setEdit} setData={setData} data={data}/>
