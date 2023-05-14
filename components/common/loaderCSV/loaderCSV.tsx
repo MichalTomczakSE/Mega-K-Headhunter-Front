@@ -31,13 +31,25 @@ export const LoaderCSV=()=> {
         }
     };
 
-    const submitCsv=()=>{
+    const submitCsv=async()=>{
 
         if(errorRows?.size==0&&dataType!=="") {
-            console.log(array)
+            console.log(array,dataType)
+            const resp=await fetch('http://localhost:3001/auth/addUsers',{
+                body:JSON.stringify({data:array,type:dataType}),
+                headers:{
+                    'content-type': 'application/json'
+                },
+                method:'POST'
+            })
+            console.log(await resp.json())
+            /*
+            setDataType("")
             setArray([]);
             setErrorRows(new Set());
             setHeaderValid(true);
+
+             */
         }
     }
 
