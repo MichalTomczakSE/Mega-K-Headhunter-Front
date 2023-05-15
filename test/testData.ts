@@ -1,4 +1,4 @@
-export const testInfo={
+export const Info={
     /*courseCompletion:5,
     courseEngagement:4,
     projectDegree:3,
@@ -10,22 +10,20 @@ export const testInfo={
     expectedSalary:16000,
     canTakeApprenticeship:"Tak",
     monthsOfCommercialExp:1,*/
-
-    education:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    courses:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    workExperience:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-    portfolioUrls:["https://www.onet.pl/","https://www.onet.pl/"],
-    projectUrls:["https://www.onet.pl/","https://www.onet.pl/"],
-    bonusProjectUrls:["https://www.onet.pl/","https://www.onet.pl/"]
+    education:"asdfsadfsdaf",
+    courses:"sdfsadfsdaf",
+    workExperience:"asdassfdaasdf",
+    portfolioUrls:["https://www.onet.pl/","https://w.onet.pl/","safsadfsdaf"],
+    projectUrls:["https://www.onet.pl/","https://wwwnet.pl/","sadfsdafsdaf"],
+    bonusProjectUrls:["https://www.onet.pl/","https://www.ot.pl/","sadfsdafsdaf"]
 
 }
 
-export const testUser={
+export const User={
     firstName:"test",
     lastName:"test",
     githubUsername:"zrodozrodo",
-    phoneNumber:"+48 1321231231",
+    phoneNumber:"481321231231",
     email:"test@test",
     bio:"   adipiscing elit, sed do eiusmod tempor incididunt ut\n" +
         "                         labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +

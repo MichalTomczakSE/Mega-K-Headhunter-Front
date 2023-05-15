@@ -1,15 +1,20 @@
-import {LinkComponent} from "./linkComponent";
-import {v4 as uuid} from 'uuid';
+import {Dispatch, SetStateAction} from "react";
+import {UseFormRegisterReturn} from "react-hook-form";
+import {StudentEntity} from "@/interfaces/student/student";
 
 interface DetailsInterface{
 
     name: string,
-    description?: string|string[];
+    description?: string|string[]|null;
     elements?: JSX.Element[];
-
+    edit:boolean,
+    setData?: Dispatch<SetStateAction<StudentEntity>>,
+    data?: StudentEntity,
+    register?: UseFormRegisterReturn<string>;
+    id?:string,
 }
 
-export const InfoLayout=({name,description,elements}:DetailsInterface)=>{
+export const InfoLayout=({register,edit,name,description}:DetailsInterface)=>{
 
     return (
         <div className={"flex w-full flex-col"}>
@@ -17,16 +22,18 @@ export const InfoLayout=({name,description,elements}:DetailsInterface)=>{
                 <span className={"font-semibold"}>{name}</span>
             </div>
             {description&&
-                <div className={"h-fit p-5 flex justify-start text-light-primary-text text-sm items-center "}>
-                    <span className={"space-y-2"}>
-                        {typeof description==='string'?description:description.map(url=><LinkComponent key={uuid.toString()} url={url}/>)}
+                <div className={"h-fit p-5 w-full flex justify-start text-light-primary-text text-sm items-center "}>
+                    {edit?<span className={"space-y-2"}>
+                         {description}
                     </span>
-                </div>
-            }
-            {
-                elements&&
-                <div>
-                    {elements.map((element,index)=><div key={index}>{element}</div>)}
+                        :
+                        <span className={"space-y-2 w-full"}>
+                            <textarea
+                                {...register}
+                                className={"resize border-2 border-secondary-background bg-primary-background w-full rounded-md"}
+                            />
+                    </span>
+                    }
                 </div>
             }
         </div>
