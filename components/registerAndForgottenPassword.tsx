@@ -4,20 +4,38 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import logo from'../public/images/logo.png'
+import {useState} from "react";
 
 
-interface Props{
-  message:string
+interface RegisterAndPassProps{
+  message:string,
+  type:string
 }
 
-export const RegisterAndForgottenPassword = ({message}:Props) => {
+export const RegisterAndForgottenPassword = ({message,type}:RegisterAndPassProps) => {
   const { register, handleSubmit } = useForm<{email:string}>({
     defaultValues: {
       email: "",
     },
   });
+  const [isLoading,setIsLoading]=useState<boolean>(false)
   const router = useRouter();
-  const formHandler = (formValue:{email:string}) => {
+  const formHandler =async (formValue:{email:string}) => {
+    await setIsLoading(true)
+  if(type==='register')
+  {
+    const resp=fetch("",{
+      method:"POST",
+      body:JSON.stringify(formValue),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  }
+  else if(type==="forgot")
+  {
+    const resp=fetch("")
+  }
   };
   return (
     <>
@@ -47,7 +65,7 @@ export const RegisterAndForgottenPassword = ({message}:Props) => {
                 </div>
               </label>
               <div className={"flex items-center justify-between"}>
-                <Button type={"submit"}>Wyślij</Button>
+                <Button  type={"submit"}>Wyślij</Button>
               </div>
             </form>
           </div>

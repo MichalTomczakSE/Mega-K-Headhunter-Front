@@ -4,20 +4,46 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import logo from'../public/images/logo.png'
+import {useCookies} from "react-cookie";
+import {useState} from "react";
+import {useRouter} from "next/router";
+
 
 interface FormValues{
-  email:string;
+  username:string;
   password:string;
 }
 
 const LoginPage = () => {
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
-  const formHandler = (formValues:FormValues) => {
+  const [message,setMessage]=useState<string>("")
+  const [cookie,setCookie]=useCookies(['userInfo'])
+  const { push } = useRouter();
+
+
+  const formHandler = async(formValues:FormValues) => {
+    const resp=await fetch('http://localhost:3000/auth/login',{
+      body:JSON.stringify(formValues),
+      headers:{
+        "Content-Type": "application/json",
+      },
+      method:'POST'
+    })
+
+    const data:{email?:string,id?:string,role?:number,token?:{access_token:string}}=await resp.json()
+    if(data.token){
+      const{email,id,role}=data
+      setCookie('userInfo',{token:data.token.access_token,email,id,role},{ path: '/' })
+      await push('/')
+    }
+    else{
+      setMessage("Nie znaleziono użytkownika")
+    }
   };
   return (
     <>
@@ -31,6 +57,7 @@ const LoginPage = () => {
                 className={"object-fill w-36 "}
               />
             </div>
+            <div>{message&&<p>{message}</p>}</div>
             <form
               onSubmit={handleSubmit((formValues) => formHandler(formValues))}
               className="space-y-4"
@@ -38,7 +65,7 @@ const LoginPage = () => {
               <div>
                 <Input
                   placeholder="E-mail"
-                  register={register("email", { required: true })}
+                  register={register("username", { required: true })}
                 />
               </div>
               <div>
