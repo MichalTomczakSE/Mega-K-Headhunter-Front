@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Header } from "@/components/common/Header";
 import { LinkComponent } from "@/components/hrInfo/linkHr/linkComponent";
-import { Container } from "@/components/hrInfo/hrContainer/Container";
+import { Container } from "@/components/common/container/Container";
 import { SearchStudent } from "@/components/hrInfo/Search/searchStudent";
 import { Filter } from "@/components/hrInfo/Filter/Filter";
 import { Pagination } from "@/components/hrInfo/Pagination/Pagination";
