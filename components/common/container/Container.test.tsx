@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { Container }  from '@/components/hrInfo/hrContainer/Container';
+import { Container }  from '@/components/common/container/Container';
 
-describe('hrContainer', () => {
+describe('Container', () => {
 	it('should be render children', () => {
 		const child1 = <p>child1</p>
 		const child2 = <p>child2</p>
