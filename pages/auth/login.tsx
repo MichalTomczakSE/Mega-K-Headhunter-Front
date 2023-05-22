@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
-import logo from'../public/images/logo.png'
+import logo from '../../public/images/logo.png'
 import {useCookies} from "react-cookie";
 import {useState} from "react";
 import {useRouter} from "next/router";
