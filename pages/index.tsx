@@ -1,13 +1,16 @@
-import {Header} from "@/components/common/Header";
-import {LoaderCSV} from "@/components/common/loaderCSV/loaderCSV";
+import { Button } from "@/components/common/Button";
+import {Container} from "@/components/common/container/Container"
+import Link from "next/link";
+import { Logo } from "@/components/common/logo/Logo";
 
 export default function Home() {
-    return (
-        <div>
-            <Header/>
-            <section className="bg-primary-background w-full h-[100vh]">
-                    <LoaderCSV/>
-            </section>
-        </div>
+    return ( <>
+        <Container>
+          <Logo />
+          <Link href={"/login"} className=" py-4 text-2xl underline">
+            <Button>Zaloguj się</Button>
+          </Link>
+        </Container>
+    </>
     )
 }
