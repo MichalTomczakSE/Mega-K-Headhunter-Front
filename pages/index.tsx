@@ -7,7 +7,7 @@ export default function Home() {
     return ( <>
         <Container>
           <Logo />
-          <Link href={"/login"} className=" py-4 text-2xl underline">
+          <Link href={"auth/login"} className=" py-4 text-2xl underline">
             <Button>Zaloguj się</Button>
           </Link>
         </Container>
