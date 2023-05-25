@@ -76,7 +76,7 @@ const LoginPage = () => {
                 />
               </div>
               <div className="flex flex-row-reverse mb-6">
-                <Link href={"/forgotPassword"}>
+                <Link href={"/auth/forgotPassword"}>
                   <span className={"text-light-primary-text"}>
                     Zapomniałeś hasła?
                   </span>
@@ -86,7 +86,7 @@ const LoginPage = () => {
                 <span className="text-sm font-light text-light-primary-text">
                   Nie masz konta?{" "}
                   <Link
-                    href={"/register"}
+                    href={"/auth/register"}
                     className="font-medium cursor-pointer underline"
                   >
                     Zarejestruj się
