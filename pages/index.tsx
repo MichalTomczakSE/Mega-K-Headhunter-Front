@@ -7,8 +7,8 @@ export default function Home() {
     return ( <>
         <Container>
           <Logo />
-          <Link href={"auth/login"} className=" py-4 text-2xl underline">
-            <Button>Zaloguj się</Button>
+          <Link data-test={"main-page-link"} href={"auth/login"} className=" py-4 text-2xl underline">
+            <Button >Zaloguj się</Button>
           </Link>
         </Container>
     </>
