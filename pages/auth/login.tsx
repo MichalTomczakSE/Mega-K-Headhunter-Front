@@ -52,6 +52,7 @@ const LoginPage = () => {
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
               <Image
+                data-test="logo"
                 alt={"megak"}
                 src={logo}
                 className={"object-fill w-36 "}
@@ -62,27 +63,27 @@ const LoginPage = () => {
               onSubmit={handleSubmit((formValues) => formHandler(formValues))}
               className="space-y-4"
             >
-              <div>
+              <div data-test={"input-mail"}>
                 <Input
                   placeholder="E-mail"
                   register={register("username", { required: true })}
                 />
               </div>
-              <div>
+              <div data-test={"input-password"}>
                 <Input
                   register={register("password", { required: true })}
                   password
                   placeholder={"Hasło"}
                 />
               </div>
-              <div className="flex flex-row-reverse mb-6">
+              <div data-test={"container-btn-forgot"} className="flex flex-row-reverse mb-6">
                 <Link href={"/auth/forgotPassword"}>
                   <span className={"text-light-primary-text"}>
                     Zapomniałeś hasła?
                   </span>
                 </Link>
               </div>
-              <div className={"flex items-center justify-between"}>
+              <div data-test={"container-btn"} className={"flex items-center justify-between"}>
                 <span className="text-sm font-light text-light-primary-text">
                   Nie masz konta?{" "}
                   <Link
@@ -92,7 +93,7 @@ const LoginPage = () => {
                     Zarejestruj się
                   </Link>
                 </span>
-                <Button type={"submit"}>Zaloguj się</Button>
+                <Button  type={"submit"}>Zaloguj się</Button>
               </div>
             </form>
           </div>
