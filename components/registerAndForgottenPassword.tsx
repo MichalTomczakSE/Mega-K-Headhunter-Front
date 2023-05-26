@@ -44,12 +44,13 @@ export const RegisterAndForgottenPassword = ({message,type}:RegisterAndPassProps
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className={"flex w-full justify-center"}>
               <Image
+                data-test={"logo"}
                 alt={"megak"}
                 src={logo}
                 className={"object-fill w-36 "}
               />
             </div>
-            <form
+            <form data-test={"form"}
               onSubmit={handleSubmit((formValue) => formHandler(formValue))}
               className="space-y-6"
             >
@@ -57,7 +58,7 @@ export const RegisterAndForgottenPassword = ({message,type}:RegisterAndPassProps
                 <span className={"text-lg"}>
                   {message}
                 </span>
-                <div>
+                <div data-test={"input-mail"}>
                   <Input
                     placeholder="E-mail"
                     register={register("email", { required: true })}
