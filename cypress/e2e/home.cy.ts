@@ -10,4 +10,10 @@ describe('Home page', () => {
         cy.location("pathname").should("equal", "/auth/login")
       })
     })
+
+    context("Image section", () => {
+      it("should be image on page", () => {
+        cy.getByData("logo").should("exist")
+      })
+    })
   })
